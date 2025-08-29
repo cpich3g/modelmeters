@@ -1,0 +1,61 @@
+name: Open Issue for New AI Summary
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'monthly/aisummary/*.md'
+      # Exclude index.json to prevent triggering on index updates
+      - '!monthly/aisummary/index.json'
+
+jobs:
+  check-new-summaries:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # Need at least 2 commits to compare
+          
+      - name: Check for new AI summary files
+        id: check_new_files
+        run: |
+          # Get the list of added files in monthly/aisummary/ that end with .md
+          NEW_FILES=$(git diff --name-status HEAD~1 HEAD | awk '$1=="A" && $2 ~ /^monthly\/aisummary\/.*\.md$/ {print $2}' || true)
+          
+          if [ -n "$NEW_FILES" ]; then
+            echo "new_files_found=true" >> $GITHUB_OUTPUT
+            # Store new files in output
+            echo "new_files<<EOF" >> $GITHUB_OUTPUT
+            echo "$NEW_FILES" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "new_files_found=false" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Create issues for new AI summaries
+        if: steps.check_new_files.outputs.new_files_found == 'true'
+        run: |
+          # Process each new file
+          while IFS= read -r file; do
+            if [ -n "$file" ]; then
+              # Extract filename from path
+              filename=$(basename "$file")
+              
+              # Create the issue using GitHub CLI
+              gh issue create \
+                --title "Please review $filename" \
+                --body "$filename has been created in monthly/aisummary folder. Please review and amend if needed." \
+                --assignee guygregory \
+                --label "help wanted"
+              
+              echo "Created issue for $filename"
+            fi
+          done <<< "${{ steps.check_new_files.outputs.new_files }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
