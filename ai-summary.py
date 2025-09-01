@@ -11,7 +11,7 @@ now = datetime.now()
 current_date_uk = f"{now.day} {now.strftime('%B %Y')}"
 disclaimer = (
     "Prices vary depending on region. "
-    f"This summary was AI-generated on {current_date_uk} using {os.getenv("AZURE_OPENAI_API_MODEL")}, and may contain mistakes, or outdated pricing data. "
+    f"This summary was AI-generated on using gpt-5, and may contain mistakes, or outdated pricing data. "
     "Always use the Retail Prices API for live pricing."
 )
 
