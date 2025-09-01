@@ -5,13 +5,20 @@ from datetime import datetime
 from openai import OpenAI
 from dotenv import load_dotenv
 
-
 load_dotenv()
+
+now = datetime.now()
+current_date_uk = f"{now.day} {now.strftime('%B %Y')}"
+disclaimer = (
+    "Prices vary depending on region. "
+    f"This summary was AI-generated on {current_date_uk} using {os.getenv("AZURE_OPENAI_API_MODEL")}, and may contain mistakes, or outdated pricing data. "
+    "Always use the Retail Prices API for live pricing."
+)
 
 system_message = """
 
 <general instructions>
-You are a helpful AI assistant that summarises a price list file of new Azure AI Foundry Model meters, and provides a concise overview of the file. The file is provided in ndjson format. Stick to the facts. Do not include a title or preamble.  At the end of the document, state that prices vary depending on region.
+You are a helpful AI assistant that summarises a price list file of new Azure AI Foundry Model meters, and provides a concise overview of the file. The file is provided in ndjson format. Stick to the facts. Do not include a title or preamble.
 When summarising, group the models by model provider (using heading level 3), and try to summarise one model per bullet point.
 
 <general instructions/>
@@ -102,14 +109,15 @@ def main():
     try:
         response = client.responses.create(
             model=azure_model,
+            **({"reasoning": {"effort": "minimal"}} if azure_model.lower() == "gpt-5" else {}),
             instructions=system_message,
             tools=[
-                {
-                    "type": "mcp",
-                    "server_label": "MicrosoftLearn",
-                    "server_url": "https://learn.microsoft.com/api/mcp",
-                    "require_approval": "never",
-                },
+            {
+                "type": "mcp",
+                "server_label": "MicrosoftLearn",
+                "server_url": "https://learn.microsoft.com/api/mcp",
+                "require_approval": "never",
+            },
             ],
             input=ndjson_content,
         )
@@ -122,7 +130,7 @@ def main():
     try:
         os.makedirs(output_dir, exist_ok=True)
         full_date_title = f"# {parsed_date.day} {parsed_date.strftime('%B %Y')}\n\n"
-        final_markdown = f"{full_date_title}{content or ''}"
+        final_markdown = f"{full_date_title}{content or ''}\n\n{disclaimer}"
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(final_markdown)
     except Exception as e:
