@@ -33,8 +33,8 @@ After each model group, use the Microsoft Learn MCP tool to provide links to the
 
 - All the prices are in USD
 - Do not round up or round down pricing
-- When there are multiple prices for the same model, don't quote the rage, just state from $xxxxx.
-- Aways quote the exact price listed
+- When there are multiple prices for the same model, don't quote the range or individual prices, just state "from <lowest price>".
+- Always quote the exact price listed
 
 <pricing format/>
 
