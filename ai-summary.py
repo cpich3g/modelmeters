@@ -109,7 +109,8 @@ def main():
     try:
         response = client.responses.create(
             model=azure_model,
-            **({"reasoning": {"effort": "minimal"}} if azure_model.lower() == "gpt-5" else {}),
+            #**({"reasoning": {"effort": "minimal"}} if azure_model.lower() == "gpt-5" else {}),
+            reasoning_effort = "minimal",
             instructions=system_message,
             tools=[
             {
