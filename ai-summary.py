@@ -59,7 +59,7 @@ def main():
     args, unknown = parser.parse_known_args()
 
     if not args.date:
-        print("Tip: run with --date YYYY-MM-DD. Example: python ai-summary-responses.py --date 2025-08-01 [--force]")
+        print("Tip: run with --date YYYY-MM-DD. Example: python ai-summary.py --date 2025-08-01 [--force]")
         sys.exit(1)
 
     try:
@@ -109,7 +109,7 @@ def main():
     try:
         response = client.responses.create(
             model=azure_model,
-            **({"reasoning": {"effort": "minimal"}} if azure_model.lower() == "gpt-5" else {}),
+            **({"reasoning": {"effort": "medium"}} if azure_model.lower() == "gpt-5" else {}),
             instructions=system_message,
             tools=[
             {
