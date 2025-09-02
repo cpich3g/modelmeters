@@ -60,7 +60,6 @@
 {"productName": "Azure OpenAI", "meterName": "Image-Dall-E-3 Std HighRes-glbl Images", "unitPrice": 8.0, "unitOfMeasure": "100"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Outp regnl Tokens", "unitPrice": 0.0121, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "embedding-ada-glbl Tokens", "unitPrice": 0.0001, "unitOfMeasure": "1K"}
-{"productName": "Azure OpenAI", "meterName": "embedding-ada-regional Tokens", "unitPrice": 0.0001, "unitOfMeasure": "1K"}
 {"productName": "Azure AI Translator", "meterName": "Commitment Tier App 150K hours App Overage", "unitPrice": 2.8125, "unitOfMeasure": "1 Hour"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4-turbo-Vision-128K Inp-glbl Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4-32K-Inp-glbl Tokens", "unitPrice": 0.06, "unitOfMeasure": "1K"}
