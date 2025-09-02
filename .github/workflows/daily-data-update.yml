@@ -42,6 +42,9 @@ jobs:
           python create-ai-summaries.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+          AZURE_OPENAI_V1_API_ENDPOINT: ${{ secrets.AZURE_OPENAI_V1_API_ENDPOINT }}
+          AZURE_OPENAI_API_MODEL: ${{ secrets.AZURE_OPENAI_API_MODEL }}
           
       - name: Update metadata timestamp
         run: |
