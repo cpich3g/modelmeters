@@ -5,13 +5,54 @@ from datetime import datetime
 from openai import OpenAI
 from dotenv import load_dotenv
 
-load_dotenv()
+# --- Global environment initialization ---
+REQUIRED_ENV_VARS = [
+    "AZURE_OPENAI_API_KEY",
+    "AZURE_OPENAI_V1_API_ENDPOINT",
+    "AZURE_OPENAI_API_MODEL",
+]
+
+# Globals made available to the rest of the module
+azure_key = None
+azure_endpoint = None
+azure_model = None
+
+
+def _have_all_required_env_vars() -> bool:
+    return all(os.getenv(v) for v in REQUIRED_ENV_VARS)
+
+
+def _initialize_env():
+    """Load env vars globally.
+
+    1) Try loading from .env
+    2) If still missing, try environment as provided by GitHub Repository secrets (e.g., GitHub Actions)
+    3) Leave globals set from os.environ if present; main() will error if still missing
+    """
+
+    # Try .env first
+    load_dotenv(override=False)
+
+    if not _have_all_required_env_vars():
+        # Fallback to GitHub Actions/Repository secrets environment (no explicit fetch possible)
+        # If running in Actions, secrets are already in environment.
+        # Nothing to actively load here; just proceed to read whatever is present.
+        pass
+
+    global azure_key, azure_endpoint, azure_model
+    azure_key = os.getenv("AZURE_OPENAI_API_KEY")
+    azure_endpoint = os.getenv("AZURE_OPENAI_V1_API_ENDPOINT")
+    azure_model = os.getenv("AZURE_OPENAI_API_MODEL")
+
+
+# Initialize on import so values are available module-wide
+_initialize_env()
 
 now = datetime.now()
 current_date_uk = f"{now.day} {now.strftime('%B %Y')}"
 disclaimer = (
     "Prices vary depending on region. "
-    f"This summary was AI-generated on {current_date_uk} using {os.getenv("AZURE_OPENAI_API_MODEL")}, and may contain mistakes, or outdated pricing data. "
+    f"This summary was AI-generated on {current_date_uk} using {azure_model or 'an Azure model'}, and may contain mistakes, or outdated pricing data. "
     "The existence of a price meter does not always imply model/service availability. Always use the Azure Retail Prices API for live pricing."
 )
 
@@ -31,10 +72,14 @@ After each model group, use the Microsoft Learn MCP tool to provide links to the
 
 <pricing format>
 
-- All the prices are in USD
+- All the prices are in USD, show prices with a dollar sign.
+- Do not write $3.0 per 1 Hour, write $3/hour. Same for seconds.
+- For $3.0 per 1K tokens, write $3/1k tokens.
+- For $3.0 per 1M tokens, write $3/1M tokens.
 - Do not round up or round down pricing
-- When there are multiple prices for the same model, don't quote the range or individual prices, just state "from $<lowest price>".
-- Always quote the exact price listed
+- When there are multiple prices for the same model, don't quote the range or individual prices, just state "from $(lowest price)".
+- Express prices given in scientific notation as a decimal amount. e.g 5e-05 will be $0.00005
+- Unless otherwise specified, quote the exact price listed.
 
 <pricing format/>
 
@@ -92,10 +137,7 @@ def main():
         print(f"Error reading input file: {e}")
         sys.exit(4)
 
-    # Ensure required Azure environment variables are present
-    azure_key = os.getenv("AZURE_OPENAI_API_KEY")
-    azure_endpoint = os.getenv("AZURE_OPENAI_V1_API_ENDPOINT")
-    azure_model = os.getenv("AZURE_OPENAI_API_MODEL")
+    # Ensure required Azure environment variables are present (loaded globally at import time)
     if not azure_key or not azure_endpoint or not azure_model:
         print("Error: Missing Azure OpenAI environment variables. Set AZURE_OPENAI_API_KEY, AZURE_OPENAI_V1_API_ENDPOINT, and AZURE_OPENAI_API_MODEL.")
         sys.exit(7)
