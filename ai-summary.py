@@ -171,7 +171,7 @@ def main():
 
     content = getattr(response, "output_text", "")
 
-    print(response)
+    # print(response)
     # Print output tokens by parsing the JSON-like response
     # Minimal token usage extraction
     usage = getattr(response, "usage", None)
