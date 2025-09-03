@@ -2,8 +2,10 @@ import os
 import sys
 import argparse
 from datetime import datetime
+#from urllib import response
 from openai import OpenAI
 from dotenv import load_dotenv
+import time
 
 # --- Global environment initialization ---
 REQUIRED_ENV_VARS = [
@@ -16,6 +18,7 @@ REQUIRED_ENV_VARS = [
 azure_key = None
 azure_endpoint = None
 azure_model = None
+reasoning_effort = "medium"  # default; can be overridden per-model below (minimal | low | medium | high)
 
 
 def _have_all_required_env_vars() -> bool:
@@ -50,11 +53,6 @@ _initialize_env()
 
 now = datetime.now()
 current_date_uk = f"{now.day} {now.strftime('%B %Y')}"
-disclaimer = (
-    "Prices vary depending on region. "
-    f"This summary was AI-generated on {current_date_uk} using {azure_model or 'an Azure model'}, and may contain mistakes, or outdated pricing data. "
-    "The existence of a price meter does not always imply model/service availability. Always use the Azure Retail Prices API for live pricing."
-)
 
 system_message = """
 
@@ -147,27 +145,76 @@ def main():
         base_url=azure_endpoint,
         default_query={"api-version": "preview"},
     )
-
+    filename = os.path.basename(input_path)
+    print(f"Using {azure_model} with {reasoning_effort} reasoning effort on {filename}.")
+    api_call_seconds = None
+    start_time = time.perf_counter()
     try:
         response = client.responses.create(
             model=azure_model,
-            **({"reasoning": {"effort": "medium"}} if azure_model.lower() == "gpt-5" else {}),
+            **({"reasoning": {"effort": reasoning_effort}} if azure_model.lower() == "gpt-5" else {}),
             instructions=system_message,
             tools=[
             {
-                "type": "mcp",
-                "server_label": "MicrosoftLearn",
-                "server_url": "https://learn.microsoft.com/api/mcp",
-                "require_approval": "never",
+            "type": "mcp",
+            "server_label": "MicrosoftLearn",
+            "server_url": "https://learn.microsoft.com/api/mcp",
+            "require_approval": "never",
             },
             ],
             input=ndjson_content,
         )
+        api_call_seconds = time.perf_counter() - start_time
     except Exception as e:
         print(f"Error from model API: {e}")
         sys.exit(5)
 
     content = getattr(response, "output_text", "")
+
+    print(response)
+    # Print output tokens by parsing the JSON-like response
+    # Minimal token usage extraction
+    usage = getattr(response, "usage", None)
+    if hasattr(usage, "model_dump"):
+        try:
+            usage = usage.model_dump()
+        except Exception:
+            pass
+
+    def _uget(primary, fallback=None):
+        if isinstance(usage, dict):
+            val = usage.get(primary)
+            return usage.get(fallback) if val is None and fallback else val
+        else:
+            val = getattr(usage, primary, None)
+            return getattr(usage, fallback, None) if val is None and fallback else val
+
+    input_tokens = _uget("input_tokens", "prompt_tokens")
+    output_tokens = _uget("output_tokens", "completion_tokens")
+    total_tokens = _uget("total_tokens")
+
+    if total_tokens is None:
+        parts = [t for t in (input_tokens, output_tokens) if isinstance(t, (int, float))]
+        total_tokens = int(sum(parts)) if parts else None
+
+    print(f"Input tokens: {input_tokens if input_tokens is not None else 'n/a'}")
+    print(f"Output tokens: {output_tokens if output_tokens is not None else 'n/a'}")
+    print(f"Total tokens: {total_tokens if total_tokens is not None else 'n/a'}")
+    if api_call_seconds is not None:
+        print(f"Time taken: {int(round(api_call_seconds))}s")
+
+    reasoning_effort_text = ""
+    if (azure_model).lower() == "gpt-5":
+        reasoning_effort_text = f" with {reasoning_effort} reasoning effort"
+
+    disclaimer = (
+    "Prices vary depending on region. "
+    f"This summary was AI-generated in {int(round(api_call_seconds))} seconds on {current_date_uk} using {azure_model or 'an Azure model'}{reasoning_effort_text}. It may contain mistakes, or outdated pricing data. "
+    "Always use the Azure Retail Prices API for live pricing. The existence of a price meter does not always imply model/service availability. "
+    f"Tokens used - input: {input_tokens if input_tokens is not None else 'n/a'}, "
+    f"output: {output_tokens if output_tokens is not None else 'n/a'}, "
+    f"total: {total_tokens if total_tokens is not None else 'n/a'}."
+    )
 
     try:
         os.makedirs(output_dir, exist_ok=True)
