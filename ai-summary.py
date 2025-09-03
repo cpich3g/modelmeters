@@ -18,7 +18,7 @@ REQUIRED_ENV_VARS = [
 azure_key = None
 azure_endpoint = None
 azure_model = None
-reasoning_effort = "medium"  # default; can be overridden per-model below (minimal | low | medium | high)
+reasoning_effort = "low"  # default; can be overridden per-model below (minimal | low | medium | high)
 
 
 def _have_all_required_env_vars() -> bool:
