@@ -208,9 +208,8 @@ def main():
         reasoning_effort_text = f" with {reasoning_effort} reasoning effort"
 
     disclaimer = (
-    "Prices vary depending on region. "
     f"This summary was AI-generated in {int(round(api_call_seconds))} seconds on {current_date_uk} using {azure_model or 'an Azure model'}{reasoning_effort_text}. It may contain mistakes, or outdated pricing data. "
-    "Always use the Azure Retail Prices API for live pricing. The existence of a price meter does not always imply model/service availability. "
+    "Always use the Azure Retail Prices API for live pricing. The existence of a price meter does not always imply model/service availability. Prices vary depending on region.<br>"
     f"Tokens used - input: {input_tokens if input_tokens is not None else 'n/a'}, "
     f"output: {output_tokens if output_tokens is not None else 'n/a'}, "
     f"total: {total_tokens if total_tokens is not None else 'n/a'}."
