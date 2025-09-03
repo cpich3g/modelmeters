@@ -18,7 +18,7 @@ REQUIRED_ENV_VARS = [
 azure_key = None
 azure_endpoint = None
 azure_model = None
-reasoning_effort = "medium"  # default; can be overridden per-model below (minimal | low | medium | high)
+reasoning_effort = "minimal"  # default; can be overridden per-model below (minimal | low | medium | high)
 
 
 def _have_all_required_env_vars() -> bool:
@@ -197,9 +197,9 @@ def main():
         parts = [t for t in (input_tokens, output_tokens) if isinstance(t, (int, float))]
         total_tokens = int(sum(parts)) if parts else None
 
-    print(f"Input tokens: {input_tokens if input_tokens is not None else 'n/a'}")
-    print(f"Output tokens: {output_tokens if output_tokens is not None else 'n/a'}")
-    print(f"Total tokens: {total_tokens if total_tokens is not None else 'n/a'}")
+    print(f"Input tokens: {format(int(input_tokens), ',') if input_tokens is not None else 'n/a'}")
+    print(f"Output tokens: {format(int(output_tokens), ',') if output_tokens is not None else 'n/a'}")
+    print(f"Total tokens: {format(int(total_tokens), ',') if total_tokens is not None else 'n/a'}")
     if api_call_seconds is not None:
         print(f"Time taken: {int(round(api_call_seconds))}s")
 
@@ -208,11 +208,11 @@ def main():
         reasoning_effort_text = f" with {reasoning_effort} reasoning effort"
 
     disclaimer = (
-    f"This summary was AI-generated in {int(round(api_call_seconds))} seconds on {current_date_uk} using {azure_model or 'an Azure model'}{reasoning_effort_text}. It may contain mistakes, or outdated pricing data. "
-    "Always use the Azure Retail Prices API for live pricing. The existence of a price meter does not always imply model/service availability. Prices vary depending on region.<br>"
-    f"Tokens used - input: {input_tokens if input_tokens is not None else 'n/a'}, "
-    f"output: {output_tokens if output_tokens is not None else 'n/a'}, "
-    f"total: {total_tokens if total_tokens is not None else 'n/a'}."
+    f"_This summary was AI-generated in {int(round(api_call_seconds))} seconds on {current_date_uk} using {azure_model or 'an Azure model'}{reasoning_effort_text}.<br>It may contain mistakes, or outdated pricing data. "
+    "Always use the Azure Retail Prices API for live pricing. The existence of a price meter does not always imply model/service availability. Prices vary depending on different factors, including region.<br>"
+    f"Input tokens: {format(int(input_tokens), ',') if input_tokens is not None else 'n/a'} | "
+    f"Output tokens: {format(int(output_tokens), ',') if output_tokens is not None else 'n/a'} | "
+    f"Total tokens: {format(int(total_tokens), ',') if total_tokens is not None else 'n/a'}._"
     )
 
     try:
