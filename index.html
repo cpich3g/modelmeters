@@ -37,6 +37,8 @@
 		.menu { position:absolute; background:var(--panel-2); border:1px solid var(--border); border-radius:12px; padding:8px; display:none; min-width:260px; box-shadow:0 24px 48px rgba(0,0,0,.5); z-index: 2000; }
 		/* Columns menu should always be above filter menu if both are open */
 		#menu-columns { z-index: 2100; }
+		/* Shortcuts menu should have a z-index between filter and columns */
+		#menu-shortcuts { z-index: 2050; }
 		.menu.open { display:block; }
 		.menu .row { display:grid; grid-template-columns:1fr; gap:8px; }
 		.menu .row-inline { display:flex; gap:8px; }
@@ -45,6 +47,10 @@
 		.menu label { display:flex; gap:10px; align-items:center; padding:6px 10px; border-bottom:1px solid var(--border); font-size:12px; }
 		.menu label:last-child { border-bottom:0; }
 		.menu .actions { display:flex; justify-content:flex-end; gap:8px; }
+		/* Shortcuts menu specific styles */
+		.menu .shortcuts-link { display:block; padding:6px 10px; border-bottom:1px solid var(--border); font-size:13px; color:var(--text); text-decoration:none; }
+		.menu .shortcuts-link:hover { background:var(--panel); }
+		.menu .shortcuts-link:last-child { border-bottom:0; }
 		.chip { background:var(--panel-2); border:1px solid var(--border); border-radius:999px; padding:3px 8px; font-size:11px; color:var(--muted); max-width:180px; overflow:hidden; text-overflow:ellipsis; }
 		.kbd { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:11px; padding:2px 6px; border-radius:6px; border:1px solid var(--border); background:var(--panel-2); color:var(--muted); }
 		.empty { color:var(--muted); padding:24px; text-align:center; }
@@ -115,6 +121,8 @@
 							&nbsp; | &nbsp;
 							<a href="https://github.com/guygregory/modelmeters.com" target="_blank" rel="noopener noreferrer">GitHub</a>
 							&nbsp; | &nbsp;
+							<button id="btn-shortcuts" title="Show shortcuts menu" aria-haspopup="menu" aria-controls="menu-shortcuts" style="background:none; border:none; color:inherit; padding:0; font:inherit; cursor:pointer; text-decoration:underline;">Shortcuts</button>
+							&nbsp; | &nbsp;
 							<a href="https://github.com/guygregory/modelmeters.com?tab=readme-ov-file#disclaimer" target="_blank" rel="noopener noreferrer">Disclaimer</a>
 						</span>
 					</div>
@@ -169,6 +177,13 @@
 				<button id="btn-show-all">Show all</button>
 				<button id="btn-hide-all">Hide all</button>
 			</div>
+		</div>
+	</div>
+
+	<!-- Shortcuts menu -->
+	<div class="menu" id="menu-shortcuts" role="menu" aria-hidden="true">
+		<div class="row">
+			<div id="shortcuts-list" role="group" aria-label="Shortcuts"></div>
 		</div>
 	</div>
 
@@ -438,6 +453,10 @@
 			if (menu === document.getElementById('menu-columns')) {
 				document.getElementById('btn-columns')?.setAttribute('aria-expanded','true');
 			}
+			// Update aria-expanded for Shortcuts button when its menu opens
+			if (menu === document.getElementById('menu-shortcuts')) {
+				document.getElementById('btn-shortcuts')?.setAttribute('aria-expanded','true');
+			}
 		}
 		function closeMenus() {
 			document.querySelectorAll('.menu').forEach(m=>{m.classList.remove('open'); m.setAttribute('aria-hidden','true');});
@@ -445,6 +464,8 @@
 			if (valueSearch) valueSearch.value = '';
 			// Reset aria-expanded on Columns button when menus close
 			document.getElementById('btn-columns')?.setAttribute('aria-expanded','false');
+			// Reset aria-expanded on Shortcuts button when menus close
+			document.getElementById('btn-shortcuts')?.setAttribute('aria-expanded','false');
 		}
 
 		document.getElementById('btn-apply-filter').addEventListener('click', () => {
@@ -513,6 +534,55 @@
 			renderRows();
 			buildColumnList(colSearch.value||''); // refresh ticks
 		});
+
+		// Shortcuts menu functionality
+		const btnShortcuts = document.getElementById('btn-shortcuts');
+		const menuShortcuts = document.getElementById('menu-shortcuts');
+		const shortcutsList = document.getElementById('shortcuts-list');
+		
+		// Define the shortcuts URLs
+		const shortcuts = [
+			'https://grok.modelmeters.com',
+			'https://phi-4.modelmeters.com',
+			'https://phi.modelmeters.com',
+			'https://sora.modelmeters.com',
+			'https://xai.modelmeters.com',
+			'https://mistral.modelmeters.com',
+			'https://meta.modelmeters.com',
+			'https://llama.modelmeters.com',
+			'https://gpt5.modelmeters.com',
+			'https://gpt4o.modelmeters.com',
+			'https://gpt-oss.modelmeters.com',
+			'https://gpt-oss-120b.modelmeters.com',
+			'https://gpt-image-1.modelmeters.com',
+			'https://gpt-5.modelmeters.com',
+			'https://gpt-4o.modelmeters.com',
+			'https://flux.modelmeters.com',
+			'https://deepseek.modelmeters.com',
+			'https://bfl.modelmeters.com'
+		];
+		
+		btnShortcuts.addEventListener('click', e => {
+			// Toggle: close if already open; otherwise build and open
+			if (menuShortcuts.classList.contains('open')) { closeMenus(); return; }
+			closeMenus(); // ensure other menus close first
+			buildShortcutsList();
+			positionMenu(e.currentTarget, menuShortcuts);
+			openMenu(menuShortcuts);
+		});
+		
+		function buildShortcutsList() {
+			shortcutsList.innerHTML = '';
+			for (const url of shortcuts) {
+				const link = document.createElement('a');
+				link.href = url;
+				link.target = '_blank';
+				link.rel = 'noopener noreferrer';
+				link.className = 'shortcuts-link';
+				link.textContent = url;
+				shortcutsList.appendChild(link);
+			}
+		}
 
 		// CSV Export functionality
 		document.getElementById('btn-export-csv').addEventListener('click', exportToCSV);
