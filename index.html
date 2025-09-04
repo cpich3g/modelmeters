@@ -81,7 +81,20 @@
 	<div class="container">
 		<div class="card" id="card">
 			<div class="card-hd">
-				<div class="title">Model Meters - Azure AI Foundry <span id="row-count" class="count-chip"></span></div>
+				<div class="title"><a href="/" id="home-link" style="all:unset;cursor:pointer;display:inline;">Model Meters - Azure AI Foundry</a> <span id="row-count" class="count-chip"></span></div>
+<script>
+// Make the home link work on any path or subdirectory, without hard-coding
+document.addEventListener('DOMContentLoaded', function() {
+	var homeLink = document.getElementById('home-link');
+	if (homeLink) {
+		// Always go to the root of the current site (relative to domain)
+		homeLink.addEventListener('click', function(e) {
+			e.preventDefault();
+			window.location.pathname = '/';
+		});
+	}
+});
+</script>
 				<div class="toolbar">
 					<button id="btn-info" title="Show data information">ℹ️ Info</button>
 					<button id="btn-export-csv" title="Export to CSV">📥 Export CSV</button>
