@@ -821,8 +821,21 @@
 		}
 		function positionMenu(anchor, menu) {
 			const rect = anchor.getBoundingClientRect(); const bodyRect = document.body.getBoundingClientRect();
-			const top = rect.bottom + window.scrollY + 6; const left = Math.min(rect.left + window.scrollX, bodyRect.width - menu.offsetWidth - 12);
-			menu.style.top = top + 'px'; menu.style.left = left + 'px';
+			const top = rect.bottom + window.scrollY + 6;
+			
+			// Special handling for shortcuts menu - right-align it
+			if (menu.id === 'menu-shortcuts') {
+				const right = rect.right + window.scrollX;
+				menu.style.top = top + 'px'; 
+				menu.style.left = 'auto';
+				menu.style.right = (bodyRect.width - right) + 'px';
+			} else {
+				// Default left-align behavior for other menus
+				const left = Math.min(rect.left + window.scrollX, bodyRect.width - menu.offsetWidth - 12);
+				menu.style.top = top + 'px'; 
+				menu.style.left = left + 'px';
+				menu.style.right = 'auto';
+			}
 		}
 		document.addEventListener('click', e => { const anyMenu = e.target.closest('.menu'); const anyBtn = e.target.closest('button'); if (!anyMenu && !anyBtn) closeMenus(); });
 
