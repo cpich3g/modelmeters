@@ -554,25 +554,41 @@ document.addEventListener('DOMContentLoaded', function() {
 		const shortcutsList = document.getElementById('shortcuts-list');
 		
 		// Define the shortcuts URLs
-		const shortcuts = [
-			
-			'https://gpt-5.modelmeters.com',
-			'https://gpt-4o.modelmeters.com',
-			'https://gpt-oss.modelmeters.com',
-			'https://gpt-oss-120b.modelmeters.com',
-			'https://gpt-image-1.modelmeters.com',
-			'https://sora.modelmeters.com',
-			'https://mistral.modelmeters.com',
-			'https://meta.modelmeters.com',
-			'https://llama.modelmeters.com',
-			'https://phi-4.modelmeters.com',
-			'https://phi.modelmeters.com',
-			'https://grok.modelmeters.com',
-			'https://xai.modelmeters.com',
-			'https://flux.modelmeters.com',
-			'https://bfl.modelmeters.com',
-			'https://deepseek.modelmeters.com'
-		];
+		// Load shortcuts from external YAML file (shortcuts.yaml)
+		let shortcuts = [];
+
+		(async function loadShortcuts(){
+			try {
+				const txt = await fetch('shortcuts.yaml').then(r => {
+					if (!r.ok) throw new Error(r.status + ' ' + r.statusText);
+					return r.text();
+				});
+				const lines = txt.split(/\r?\n/).map(l => l.trim());
+				let inList = false;
+				for (const line of lines) {
+					if (!line || line.startsWith('#')) continue;
+					if (!inList) {
+						if (/^shortcuts:\s*$/.test(line)) inList = true;
+						continue;
+					}
+					if (line.startsWith('- ')) {
+						let url = line.slice(2).trim();
+						if (
+							(url.startsWith('"') && url.endsWith('"')) ||
+							(url.startsWith("'") && url.endsWith("'"))
+						) {
+							url = url.slice(1, -1);
+						}
+						if (url) shortcuts.push(url);
+					} else {
+						// Reached a new key or end of list
+						break;
+					}
+				}
+			} catch (e) {
+				console.warn('Failed to load shortcuts.yaml', e);
+			}
+		})();
 		
 		btnShortcuts.addEventListener('click', e => {
 			// Toggle: close if already open; otherwise build and open
