@@ -967,8 +967,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				// Update page size selector to match state
 				if (state.pageSize !== 20) {
 					const pageSizeSelect = document.getElementById('page-size');
-					// Handle "all" case
-					if (state.pageSize >= data.length) {
+					// Handle "all" case - check for both the condition and the specific value 100000
+					if (state.pageSize >= data.length || state.pageSize === 100000) {
 						pageSizeSelect.value = 'all';
 					} else {
 						// Find closest matching option or add custom value if needed
