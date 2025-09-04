@@ -576,8 +576,6 @@
 			for (const url of shortcuts) {
 				const link = document.createElement('a');
 				link.href = url;
-				link.target = '_blank';
-				link.rel = 'noopener noreferrer';
 				link.className = 'shortcuts-link';
 				link.textContent = url;
 				shortcutsList.appendChild(link);
