@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Always go to the root of the current site (relative to domain)
 		homeLink.addEventListener('click', function(e) {
 			e.preventDefault();
-			window.location.pathname = '/';
+			window.location.href = window.location.origin + '/';
 		});
 	}
 });
