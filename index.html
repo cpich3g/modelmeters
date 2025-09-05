@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 				<div class="toolbar">
-					<button id="btn-info" title="Show data information">ℹ️ Info</button>
+					<button id="btn-favorites" title="Show favorites menu" aria-haspopup="menu" aria-controls="menu-shortcuts">⭐ Favorites</button>
 					<button id="btn-export-csv" title="Export to CSV">📥 Export CSV</button>
 					<button id="btn-share-url" title="Generate shareable URL">🔗 Share URL</button>
 					<button id="btn-columns" title="Show/Hide columns" aria-haspopup="menu" aria-controls="menu-columns">☰ Columns</button>
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					<button id="btn-ai-summaries" title="View AI monthly summaries">✨AI Summaries</button>
 				</div>
 			</div>
-			<div id="info-container" class="info-container" style="display:none;">
+			<div id="info-container" class="info-container">
 				<div class="info-content">
 					<div class="info-row">
 						<strong>Last updated:</strong> <span id="last-updated">Never</span>
@@ -133,8 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
 							<a href="https://github.com/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a>
 							&nbsp; | &nbsp;
 							<a href="https://github.com/guygregory/modelmeters.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-							&nbsp; | &nbsp;
-							<button id="btn-shortcuts" title="Show shortcuts menu" aria-haspopup="menu" aria-controls="menu-shortcuts" style="background:none; border:none; color:inherit; padding:0; font:inherit; cursor:pointer; text-decoration:underline;">Shortcuts</button>
 							&nbsp; | &nbsp;
 							<a href="https://github.com/guygregory/modelmeters.com?tab=readme-ov-file#disclaimer" target="_blank" rel="noopener noreferrer">Disclaimer</a>
 						</span>
@@ -466,9 +464,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (menu === document.getElementById('menu-columns')) {
 				document.getElementById('btn-columns')?.setAttribute('aria-expanded','true');
 			}
-			// Update aria-expanded for Shortcuts button when its menu opens
+			// Update aria-expanded for Favorites button when its menu opens
 			if (menu === document.getElementById('menu-shortcuts')) {
-				document.getElementById('btn-shortcuts')?.setAttribute('aria-expanded','true');
+				document.getElementById('btn-favorites')?.setAttribute('aria-expanded','true');
 			}
 		}
 		function closeMenus() {
@@ -477,8 +475,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (valueSearch) valueSearch.value = '';
 			// Reset aria-expanded on Columns button when menus close
 			document.getElementById('btn-columns')?.setAttribute('aria-expanded','false');
-			// Reset aria-expanded on Shortcuts button when menus close
-			document.getElementById('btn-shortcuts')?.setAttribute('aria-expanded','false');
+			// Reset aria-expanded on Favorites button when menus close
+			document.getElementById('btn-favorites')?.setAttribute('aria-expanded','false');
 		}
 
 		document.getElementById('btn-apply-filter').addEventListener('click', () => {
@@ -549,17 +547,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 
 		// Shortcuts menu functionality
-		const btnShortcuts = document.getElementById('btn-shortcuts');
 		const menuShortcuts = document.getElementById('menu-shortcuts');
 		const shortcutsList = document.getElementById('shortcuts-list');
 		
 		// Define the shortcuts URLs
-		// Load shortcuts from external YAML file (shortcuts.yaml)
+		// Load shortcuts from external YAML file (favorites.yaml)
 		let shortcuts = [];
 
 		(async function loadShortcuts(){
 			try {
-				const txt = await fetch('shortcuts.yaml').then(r => {
+				const txt = await fetch('favorites.yaml').then(r => {
 					if (!r.ok) throw new Error(r.status + ' ' + r.statusText);
 					return r.text();
 				});
@@ -586,18 +583,10 @@ document.addEventListener('DOMContentLoaded', function() {
 					}
 				}
 			} catch (e) {
-				console.warn('Failed to load shortcuts.yaml', e);
+				console.warn('Failed to load favorites.yaml', e);
 			}
 		})();
-		
-		btnShortcuts.addEventListener('click', e => {
-			// Toggle: close if already open; otherwise build and open
-			if (menuShortcuts.classList.contains('open')) { closeMenus(); return; }
-			closeMenus(); // ensure other menus close first
-			buildShortcutsList();
-			positionMenu(e.currentTarget, menuShortcuts);
-			openMenu(menuShortcuts);
-		});
+
 		
 		function buildShortcutsList() {
 			shortcutsList.innerHTML = '';
@@ -799,14 +788,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			URL.revokeObjectURL(url);
 		}
 
-		// Info button functionality
-		document.getElementById('btn-info').addEventListener('click', toggleInfoContainer);
-
-		function toggleInfoContainer() {
-			const container = document.getElementById('info-container');
-			const isVisible = container.style.display !== 'none';
-			container.style.display = isVisible ? 'none' : 'block';
-		}
+		// Favorites button functionality (repurposed from info button)
+		document.getElementById('btn-favorites').addEventListener('click', e => {
+			// Toggle: close if already open; otherwise build and open
+			if (menuShortcuts.classList.contains('open')) { closeMenus(); return; }
+			closeMenus(); // ensure other menus close first
+			buildShortcutsList();
+			positionMenu(e.currentTarget, menuShortcuts);
+			openMenu(menuShortcuts);
+		});
 
 		// Load metadata and update info display
 		async function loadMetadata() {
@@ -851,19 +841,11 @@ document.addEventListener('DOMContentLoaded', function() {
 			const rect = anchor.getBoundingClientRect(); const bodyRect = document.body.getBoundingClientRect();
 			const top = rect.bottom + window.scrollY + 6;
 			
-			// Special handling for shortcuts menu - right-align it
-			if (menu.id === 'menu-shortcuts') {
-				const right = rect.right + window.scrollX;
-				menu.style.top = top + 'px'; 
-				menu.style.left = 'auto';
-				menu.style.right = (bodyRect.width - right) + 'px';
-			} else {
-				// Default left-align behavior for other menus
-				const left = Math.min(rect.left + window.scrollX, bodyRect.width - menu.offsetWidth - 12);
-				menu.style.top = top + 'px'; 
-				menu.style.left = left + 'px';
-				menu.style.right = 'auto';
-			}
+			// Left-align behavior for all menus (favorites menu now aligns like columns menu)
+			const left = Math.min(rect.left + window.scrollX, bodyRect.width - menu.offsetWidth - 12);
+			menu.style.top = top + 'px'; 
+			menu.style.left = left + 'px';
+			menu.style.right = 'auto';
 		}
 		document.addEventListener('click', e => { const anyMenu = e.target.closest('.menu'); const anyBtn = e.target.closest('button'); if (!anyMenu && !anyBtn) closeMenus(); });
 
