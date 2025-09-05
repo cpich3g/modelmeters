@@ -46,6 +46,10 @@ jobs:
           AZURE_OPENAI_V1_API_ENDPOINT: ${{ secrets.AZURE_OPENAI_V1_API_ENDPOINT }}
           AZURE_OPENAI_API_MODEL: ${{ secrets.AZURE_OPENAI_API_MODEL }}
           
+      - name: Generate RSS feed
+        run: |
+          python generate-rss.py
+          
       - name: Update metadata timestamp
         run: |
           python -c "
@@ -69,7 +73,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add prices.ndjson metadata.json monthly/
+          git add prices.ndjson metadata.json monthly/ agent/rss.xml
           
           if git diff --staged --quiet; then
             echo "No changes to commit"

@@ -31,16 +31,20 @@ jobs:
         run: |
           python monthly/generate-index.py array
           
+      - name: Generate RSS feed
+        run: |
+          python generate-rss.py
+          
       - name: Commit updated index
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add monthly/aisummary/index.json
+          git add monthly/aisummary/index.json agent/rss.xml
           
           if git diff --staged --quiet; then
-            echo "No changes to index.json"
+            echo "No changes to index.json or RSS feed"
           else
-            git commit -m "Auto-update markdown index after changes to aisummary files"
+            git commit -m "Auto-update markdown index and RSS feed after changes to aisummary files"
             git push
-            echo "Updated markdown index committed and pushed"
+            echo "Updated markdown index and RSS feed committed and pushed"
           fi
