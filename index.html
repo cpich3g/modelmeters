@@ -829,8 +829,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById('btn-last').addEventListener('click', ()=> { state.page=Math.max(1, Math.ceil(state.filteredRows.length / state.pageSize)); renderRows(); });
 		pageSizeSel.addEventListener('change', ()=> {
 			const val = pageSizeSel.value;
-			if (val === 'all') {
-				state.pageSize = state.filteredRows.length || data.length || 1; // show everything
+			if (val === '100000') {
+				state.pageSize = 100000; // show everything - use 100000 as the "all" value
 				state.page = 1;
 			} else {
 				state.pageSize = parseInt(val,10) || 20;
@@ -967,9 +967,9 @@ document.addEventListener('DOMContentLoaded', function() {
 				// Update page size selector to match state
 				if (state.pageSize !== 20) {
 					const pageSizeSelect = document.getElementById('page-size');
-					// Handle "all" case
-					if (state.pageSize >= data.length) {
-						pageSizeSelect.value = 'all';
+					// Handle "all" case - check for both the condition and the specific value 100000
+					if (state.pageSize >= data.length || state.pageSize === 100000) {
+						pageSizeSelect.value = '100000';
 					} else {
 						// Find closest matching option or add custom value if needed
 						const options = Array.from(pageSizeSelect.options).map(opt => opt.value);
