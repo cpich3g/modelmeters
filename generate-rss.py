@@ -89,19 +89,18 @@ def generate_rss_feed(summaries: list[tuple[str, str, str, datetime]], base_url:
     rss_xml = '''<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<title>Model Meters - AI Monthly Summaries</title>
+<title>Model Meters - AI-generated Monthly Summaries</title>
 <link>{base_url}/agent/</link>
 <description>AI-generated monthly summaries of Azure AI Foundry pricing changes and updates</description>
 <language>en-us</language>
 <lastBuildDate>{last_build_date}</lastBuildDate>
 <atom:link href="{base_url}/agent/rss.xml" rel="self" type="application/rss+xml"/>
 <generator>Model Meters RSS Generator</generator>
-<webMaster>github@guygregory.com</webMaster>
-<managingEditor>github@guygregory.com</managingEditor>
+<webMaster>guy.gregory@microsoft.com</webMaster>
+<managingEditor>guy.gregory@microsoft.com</managingEditor>
 <category>Technology</category>
 <category>Azure</category>
 <category>AI</category>
-<category>Pricing</category>
 '''.format(
         base_url=base_url,
         last_build_date=formatdate(datetime.now().timestamp())
