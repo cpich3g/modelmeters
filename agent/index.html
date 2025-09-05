@@ -62,6 +62,7 @@
 				   <div class="title">Model Meters - AI summary agent ✨</div>
 				   <div style="display:flex; align-items:center; gap:12px; margin-left:auto;">
 					   <span class="title" style="font-size:16px; font-weight:500; white-space:nowrap;">Powered by <a href="https://ai.azure.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none;">Azure AI</a> + <a href="https://github.com/microsoftdocs/mcp" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none;">Microsoft Learn MCP Server</a></span>
+					   <button id="btn-rss" title="RSS Feed">🌐 RSS</button>
 					   <button id="btn-theme" title="Toggle light/dark mode">🌗 Theme</button>
 					   <button id="btn-back" title="Back to Model Meters">↩️Model Meters</button>
 				   </div>
@@ -120,6 +121,11 @@
 		// Back button
 		document.getElementById('btn-back').addEventListener('click', () => {
 			window.location.href = '../index.html';
+		});
+
+		// RSS button
+		document.getElementById('btn-rss').addEventListener('click', () => {
+			window.location.href = './rss.xml';
 		});
 
 		function getEnsuredBase() {
