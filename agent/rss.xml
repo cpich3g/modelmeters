@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<title>Model Meters - AI Monthly Summaries</title>
+<title>Model Meters - AI-generated Monthly Summaries</title>
 <link>https://modelmeters.com/agent/</link>
 <description>AI-generated monthly summaries of Azure AI Foundry pricing changes and updates</description>
 <language>en-us</language>
-<lastBuildDate>Fri, 05 Sep 2025 16:19:21 -0000</lastBuildDate>
+<lastBuildDate>Sat, 06 Sep 2025 00:53:51 -0000</lastBuildDate>
 <atom:link href="https://modelmeters.com/agent/rss.xml" rel="self" type="application/rss+xml"/>
 <generator>Model Meters RSS Generator</generator>
-<webMaster>github@guygregory.com</webMaster>
-<managingEditor>github@guygregory.com</managingEditor>
+<webMaster>guy.gregory@microsoft.com</webMaster>
+<managingEditor>guy.gregory@microsoft.com</managingEditor>
 <category>Technology</category>
 <category>Azure</category>
 <category>AI</category>
-<category>Pricing</category>
 
 <item>
 <title>1 September 2025</title>
