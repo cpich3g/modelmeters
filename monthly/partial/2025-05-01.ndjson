@@ -76,10 +76,8 @@
 {"productName": "Azure AI Translator", "meterName": "S4 Unit", "unitPrice": 1451.612903, "unitOfMeasure": "1/Day"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4.1-ft mdl grdr cchd inpt Tokens", "unitPrice": 0.00055, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4.1-nano-ft mdl grdr inpt Tokens", "unitPrice": 0.00011, "unitOfMeasure": "1K"}
-{"productName": "Azure AI Foundry Provisioned Throughput Reservation", "meterName": "Provisioned Managed Data Zone Unit", "unitPrice": 2652.0, "unitOfMeasure": "1/Hour"}
 {"productName": "Azure AI Translator", "meterName": "S2 Unit", "unitPrice": 82.863, "unitOfMeasure": "1/Day"}
 {"productName": "Azure AI Translator", "meterName": "S2 Custom Model Hosting Unit", "unitPrice": 10.0, "unitOfMeasure": "1/Month"}
-{"productName": "Azure AI Foundry Provisioned Throughput Reservation", "meterName": "Provisioned Managed Regional Unit", "unitPrice": 3646.56, "unitOfMeasure": "1/Hour"}
 {"productName": "Azure AI Translator", "meterName": "S4 Unit", "unitPrice": 1814.52, "unitOfMeasure": "1/Day"}
 {"productName": "Azure AI Translator", "meterName": "C4 Custom Training Characters", "unitPrice": 5.625, "unitOfMeasure": "1M"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4.1-nano FT Training regional Tokens", "unitPrice": 0.00165, "unitOfMeasure": "1K"}
