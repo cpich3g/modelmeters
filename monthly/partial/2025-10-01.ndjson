@@ -1,89 +1,53 @@
-{"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - Custom Speech Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Output Tokens", "unitPrice": 0.038, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Custom Speech Audio Output Tokens", "unitPrice": 0.05, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Output Tokens", "unitPrice": 0.088, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Outp regnl Tokens", "unitPrice": 0.01375, "unitOfMeasure": "1K"}
 {"productName": "Custom Vision", "meterName": "S0 Image Storage", "unitPrice": 0.7, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - Custom Speech Audio Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Std- LLM Audio Cached Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Custom Speech Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
 {"productName": "Custom Vision", "meterName": "Free Transactions", "unitPrice": 0.0, "unitOfMeasure": "1K"}
-{"productName": "Azure AI Content Safety", "meterName": "Standard Text Records", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Azure AI Content Safety", "meterName": "Standard Text Records", "unitPrice": 0.375, "unitOfMeasure": "1K"}
-{"productName": "Azure AI Content Safety", "meterName": "Standard Images", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Output Tokens", "unitPrice": 0.00264, "unitOfMeasure": "1K"}
 {"productName": "Azure AI Content Safety", "meterName": "Standard Images", "unitPrice": 0.75, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Cache Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Cached Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Output Tokens", "unitPrice": 0.038, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Output Tokens", "unitPrice": 0.055, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Input Tokens", "unitPrice": 0.044, "unitOfMeasure": "1K"}
 {"productName": "Custom Vision", "meterName": "S0 Transactions", "unitPrice": 2.0, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Output Tokens", "unitPrice": 0.05, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o mini 0718 Outp Data Zone Tokens", "unitPrice": 0.000825, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Input Tokens", "unitPrice": 8e-05, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Input Tokens", "unitPrice": 0.0055, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Cached Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Input Tokens", "unitPrice": 0.017, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Std- LLM Audio Output Tokens", "unitPrice": 0.022, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Input Tokens", "unitPrice": 0.004, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Output Tokens", "unitPrice": 0.022, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 cached Inp Data Zone Tokens", "unitPrice": 0.001719, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 cached Inp regnl Tokens", "unitPrice": 0.001719, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Input Tokens", "unitPrice": 0.00066, "unitOfMeasure": "1K"}
-{"productName": "Azure OpenAI", "meterName": "gpt 4o mini 0718 Inp Data Zone Tokens", "unitPrice": 0.000207, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Outpt Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Outpt Tokens", "unitPrice": 0.033, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Output Tokens", "unitPrice": 0.055, "unitOfMeasure": "1K"}
-{"productName": "Custom Vision", "meterName": "S0 Training", "unitPrice": 10.0, "unitOfMeasure": "1 Hour"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Input Tokens", "unitPrice": 0.015, "unitOfMeasure": "1K"}
-{"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Inp Data Zone Tokens", "unitPrice": 0.003438, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - LLM Audio Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - LLM Audio Input Tokens", "unitPrice": 0.011, "unitOfMeasure": "1K"}
-{"productName": "Azure AI Content Safety", "meterName": "Free Text Records", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Azure AI Content Safety", "meterName": "Free Text Records", "unitPrice": 0.0, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Input Tokens", "unitPrice": 0.0055, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Output Tokens", "unitPrice": 0.05, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI", "meterName": "gpt 4o mini 0718 Inp Data Zone Tokens", "unitPrice": 0.000207, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Input Tokens", "unitPrice": 0.015, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Outpt Tokens", "unitPrice": 0.033, "unitOfMeasure": "1K"}
+{"productName": "Custom Vision", "meterName": "S0 Training", "unitPrice": 10.0, "unitOfMeasure": "1 Hour"}
+{"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Inp Data Zone Tokens", "unitPrice": 0.003438, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std- LLM Audio Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std- LLM Audio Cached Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
-{"productName": "Azure AI Content Safety", "meterName": "Free Images", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Azure AI Content Safety", "meterName": "Free Text Records", "unitPrice": 0.0, "unitOfMeasure": "1K"}
+{"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
 {"productName": "Azure AI Content Safety", "meterName": "Free Images", "unitPrice": 0.0, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "o3 mini 0131 input Data Zone Tokens", "unitPrice": 0.001513, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Output Tokens", "unitPrice": 0.00032, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Cache Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Cache Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "o3 mini 0131 output Data Zone Tokens", "unitPrice": 0.00605, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Output Tokens", "unitPrice": 0.033, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o mini 0718 cached Inp Data Zone Tokens", "unitPrice": 0.000104, "unitOfMeasure": "1K"}
-{"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Inp regnl Tokens", "unitPrice": 0.003438, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Inp regnl Tokens", "unitPrice": 0.003438, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Input Tokens", "unitPrice": 0.013, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Output Tokens", "unitPrice": 0.088, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "o3 mini 0131 cached input Data Zone Tokens", "unitPrice": 0.000757, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Output Tokens", "unitPrice": 0.00264, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std- LLM Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Std- LLM Audio Output Tokens", "unitPrice": 0.022, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Outp Data Zone Tokens", "unitPrice": 0.01375, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Cached Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
 {"productName": "Computer Vision", "meterName": "Vectorize Image Transactions", "unitPrice": 0.12, "unitOfMeasure": "1K"}
