@@ -125,7 +125,6 @@
 {"productName": "Azure OpenAI Audio Image Video", "meterName": "Sora 1080p Sq 1-5s glbl Video", "unitPrice": 0.6, "unitOfMeasure": "1 Second"}
 {"productName": "Language", "meterName": "Commitment Tier CLU Azure 1M Unit", "unitPrice": 2000.0, "unitOfMeasure": "1/Month"}
 {"productName": "Computer Vision", "meterName": "Image Retrieval - Ingestion Transactions", "unitPrice": 0.012, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Vectorize Image Transactions", "unitPrice": 0.012, "unitOfMeasure": "1K"}
 {"productName": "Language", "meterName": "Commitment Tier CLU Connected Cont 10M Unit", "unitPrice": 11600.0, "unitOfMeasure": "1/Month"}
 {"productName": "Language - disconnected", "meterName": "Commitment Tier DC CLU 3M Unit", "unitPrice": 48960.0, "unitOfMeasure": "1/Year"}
 {"productName": "Computer Vision", "meterName": "Custom Object Detection Transactions", "unitPrice": 2.5, "unitOfMeasure": "1K"}

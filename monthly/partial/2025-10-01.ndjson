@@ -18,6 +18,7 @@
 {"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Output Tokens", "unitPrice": 0.05, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o mini 0718 Outp Data Zone Tokens", "unitPrice": 0.000825, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Input Tokens", "unitPrice": 8e-05, "unitOfMeasure": "1K"}
+{"productName": "Custom Vision", "meterName": "S0 Transactions", "unitPrice": 1.25, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Input Tokens", "unitPrice": 0.0055, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Cached Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Input Tokens", "unitPrice": 0.017, "unitOfMeasure": "1K"}
@@ -48,6 +49,7 @@
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Inp regnl Tokens", "unitPrice": 0.003438, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Input Tokens", "unitPrice": 0.013, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "o3 mini 0131 cached input Data Zone Tokens", "unitPrice": 0.000757, "unitOfMeasure": "1K"}
+{"productName": "Custom Vision", "meterName": "S0 Image Storage", "unitPrice": 0.4375, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Outp Data Zone Tokens", "unitPrice": 0.01375, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
 {"productName": "Computer Vision", "meterName": "Vectorize Image Transactions", "unitPrice": 0.12, "unitOfMeasure": "1K"}
