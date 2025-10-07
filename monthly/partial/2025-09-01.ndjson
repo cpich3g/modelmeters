@@ -162,7 +162,7 @@
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo16K-FT-Hstng-regnl Unit", "unitPrice": 1.87, "unitOfMeasure": "1 Hour"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4-turbo-Vision-128K Input-regional Tokens", "unitPrice": 0.0121, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Audio Image Video", "meterName": "Sora 480p Sq 1-20s regnl Video", "unitPrice": 0.15, "unitOfMeasure": "1 Second"}
-{"productName": "Foundry Model Tools", "meterName": "Model Router 1M Tokens", "unitPrice": 0.14, "unitOfMeasure": "1M"}
+{"productName": "Foundry Model Tools", "meterName": "Model Routers GL 1M Tokens", "unitPrice": 0.14, "unitOfMeasure": "1M"}
 {"productName": "Azure OpenAI", "meterName": "gpt-35-trb16K-Batch-Outp-glbl Tokens", "unitPrice": 0.001, "unitOfMeasure": "1K"}
 {"productName": "Azure AI Content Safety", "meterName": "Free Text Records", "unitPrice": 0.0, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "Speech-to-Text-Batch-Whisper-regnl Unit", "unitPrice": 0.4752, "unitOfMeasure": "1 Hour"}
