@@ -17,6 +17,7 @@
 {"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Output Tokens", "unitPrice": 0.00264, "unitOfMeasure": "1K"}
 {"productName": "Azure AI Content Safety", "meterName": "Standard Images", "unitPrice": 0.75, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI GPT5", "meterName": "gpt 5 pro batch inp glbl Tokens", "unitPrice": 0.0075, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI Media", "meterName": "gpt 4o tcrb d txt out dz Tokens", "unitPrice": 0.011, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt aud mini Inp DZone Tokens", "unitPrice": 0.011, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI GPT5", "meterName": "gpt 5 pro inp dzone Tokens", "unitPrice": 0.0165, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt aud mini txt Outp glbl Tokens", "unitPrice": 0.0024, "unitOfMeasure": "1K"}
@@ -28,6 +29,7 @@
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt img mini Inp glbl Tokens", "unitPrice": 0.0008, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt txt mini cchd Inp glbl Tokens", "unitPrice": 6e-05, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Output Tokens", "unitPrice": 0.055, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI Media", "meterName": "gpt 4o tcrb d txt out glbl Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt txt mini Outp DZone Tokens", "unitPrice": 0.00264, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt aud mini Inp glbl Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt img mini cchd Inp glbl Tokens", "unitPrice": 8e-05, "unitOfMeasure": "1K"}
@@ -40,10 +42,13 @@
 {"productName": "Azure OpenAI", "meterName": "gpt 4o mini 0718 Outp Data Zone Tokens", "unitPrice": 0.000825, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt aud mini Outp DZone Tokens", "unitPrice": 0.022, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt img 1 mini inp cchd txt glbl Tokens", "unitPrice": 0.0002, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI Media", "meterName": "gpt 4o tcrb d aud inp glbl Tokens", "unitPrice": 0.006, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt img 1 mini inp cchd txt dzone Tokens", "unitPrice": 0.00022, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI GPT5", "meterName": "gpt 5 pro out dzone Tokens", "unitPrice": 0.132, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Input Tokens", "unitPrice": 8e-05, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI Media", "meterName": "gpt 4o tcrb d txt inp glbl Tokens", "unitPrice": 0.0025, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt aud mini Inp DZone Tokens", "unitPrice": 0.011, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI Media", "meterName": "gpt 4o tcrb d aud inp dz Tokens", "unitPrice": 0.0066, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt img mini cchd Inp DZn Tokens", "unitPrice": 8.8e-05, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI GPT5", "meterName": "gpt 5 pro out glbl Tokens", "unitPrice": 0.12, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt aud mini Outp glbl Tokens", "unitPrice": 0.02, "unitOfMeasure": "1K"}
@@ -81,6 +86,7 @@
 {"productName": "Custom Vision", "meterName": "S0 Training", "unitPrice": 10.0, "unitOfMeasure": "1 Hour"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt txt mini Inp DZone Tokens", "unitPrice": 0.00066, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt aud mini txt Outp DZone Tokens", "unitPrice": 0.00264, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI Media", "meterName": "gpt 4o tcrb d txt inp dz Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Inp Data Zone Tokens", "unitPrice": 0.003438, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "Sora 2 pro high res dzone Second", "unitPrice": 0.55, "unitOfMeasure": "1"}
