@@ -94,10 +94,6 @@
 {"productName": "Azure OpenAI Media", "meterName": "Sora 720p 11-15s glbl Video", "unitPrice": 0.65, "unitOfMeasure": "1 Second"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt txt 0828 Inp DZone Tokens", "unitPrice": 0.0044, "unitOfMeasure": "1K"}
 {"productName": "Mistral Models", "meterName": "Provisioned Managed Regional Unit", "unitPrice": 2.4, "unitOfMeasure": "1/Hour"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1-1 Transactions", "unitPrice": 1.0, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1-1 Transactions", "unitPrice": 0.65, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1-1 Transactions", "unitPrice": 0.6, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1-1 Transactions", "unitPrice": 0.4, "unitOfMeasure": "1K"}
 {"productName": "Deepseek model family", "meterName": "V3.1 Outp DZone Tokens", "unitPrice": 0.00543, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "gpt rt txt 0828 cchd Inp glbl Tokens", "unitPrice": 0.0004, "unitOfMeasure": "1K"}
 {"productName": "Deepseek model family", "meterName": "V3.1 Inp DZone Tokens", "unitPrice": 0.00136, "unitOfMeasure": "1K"}
@@ -109,8 +105,6 @@
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo16K-FT-Trng-regnl tkn Tokens", "unitPrice": 0.0088, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "Sora 1080p 11-15s regnl Video", "unitPrice": 2.9, "unitOfMeasure": "1 Second"}
 {"productName": "Azure OpenAI Media", "meterName": "Sora 1080p Sq 6-10s regnl Video", "unitPrice": 0.75, "unitOfMeasure": "1 Second"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 2 Transactions", "unitPrice": 1.5, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 2 Transactions", "unitPrice": 0.6, "unitOfMeasure": "1K"}
 {"productName": "BFL Flux Models", "meterName": "Provisioned Managed Regional Unit", "unitPrice": 2.2, "unitOfMeasure": "1/Hour"}
 {"productName": "Azure OpenAI", "meterName": "embedding-ada-regional Tokens", "unitPrice": 0.000121, "unitOfMeasure": "1K"}
 {"productName": "Llama models", "meterName": "Provisioned Managed Regional Unit", "unitPrice": 2.4, "unitOfMeasure": "1/Hour"}
@@ -173,20 +167,10 @@
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo16K-FT-Trng-regnl Unit", "unitPrice": 82.28, "unitOfMeasure": "1 Hour"}
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo16K-FT-Inp-regnl Tokens", "unitPrice": 0.00055, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "Sora 720p Sq 1-20s regnl Video", "unitPrice": 0.3, "unitOfMeasure": "1 Second"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1 Transactions", "unitPrice": 1.0, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1 Transactions", "unitPrice": 0.65, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1 Transactions", "unitPrice": 0.6, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1 Transactions", "unitPrice": 0.4, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo4K-FT-Inp-regnl Tokens", "unitPrice": 0.000605, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "Sora 1080p 16-20s regnl Video", "unitPrice": 3.6, "unitOfMeasure": "1 Second"}
 {"productName": "Azure OpenAI", "meterName": "embedding-ada-regional Tokens", "unitPrice": 0.000132, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1-1 Transactions", "unitPrice": 1.2, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1-1 Transactions", "unitPrice": 0.78, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1-1 Transactions", "unitPrice": 0.72, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1-1 Transactions", "unitPrice": 0.48, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "text-embedding-3-small-regional Tokens", "unitPrice": 2.7e-05, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 2 Transactions", "unitPrice": 1.8, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 2 Transactions", "unitPrice": 0.72, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "Sora 720p 6-10s regnl Video", "unitPrice": 0.5, "unitOfMeasure": "1 Second"}
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo-16K-1106 Output-regional Tokens", "unitPrice": 0.0022, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Media", "meterName": "Sora 1080p Sq 1-5s regnl Video", "unitPrice": 0.6, "unitOfMeasure": "1 Second"}
@@ -211,10 +195,6 @@
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo-16K-0125 Output-regional Tokens", "unitPrice": 0.00198, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "Speech-Text to Speech HD-Regional Characters", "unitPrice": 33.0, "unitOfMeasure": "1M"}
 {"productName": "Azure OpenAI Media", "meterName": "Sora 1080p 16-20s glbl Video", "unitPrice": 3.6, "unitOfMeasure": "1 Second"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1 Transactions", "unitPrice": 1.2, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1 Transactions", "unitPrice": 0.78, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1 Transactions", "unitPrice": 0.72, "unitOfMeasure": "1K"}
-{"productName": "Computer Vision", "meterName": "Image Analysis Group 1 Transactions", "unitPrice": 0.48, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4.1 nano cached Inp glbl Tokens", "unitPrice": 2.5e-05, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4.1 Batch Inp glbl Tokens", "unitPrice": 0.001, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo-16K-0125 Input-regional Tokens", "unitPrice": 0.00066, "unitOfMeasure": "1K"}

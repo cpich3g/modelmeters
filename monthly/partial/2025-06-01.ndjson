@@ -155,7 +155,7 @@
 {"productName": "Grok model family", "meterName": "Grok-3 Outp glbl Tokens", "unitPrice": 0.01875, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI Reasoning", "meterName": "codex mini inp dzone Tokens", "unitPrice": 0.00165, "unitOfMeasure": "1K"}
 {"productName": "Azure AI Translator", "meterName": "Commitment Tier Emb 10000M Unit", "unitPrice": 42750.0, "unitOfMeasure": "1/Month"}
-{"productName": "Azure AI Content Understanding", "meterName": "Document Content Extraction Pages", "unitPrice": 5.0, "unitOfMeasure": "1K"}
+{"productName": "Azure AI Content Understanding", "meterName": "Standard Doc Content Extraction Pages", "unitPrice": 5.0, "unitOfMeasure": "1K"}
 {"productName": "Llama models", "meterName": "Llama 4 Maverick 17B Inp glbl Tokens", "unitPrice": 0.000313, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4o-aud-0603 Inp regnl Tokens", "unitPrice": 0.044, "unitOfMeasure": "1K"}
 {"productName": "Llama models", "meterName": "Llama 4 Maverick 17B Outp regnl Tokens", "unitPrice": 0.00132, "unitOfMeasure": "1K"}
