@@ -106,3 +106,4 @@
 {"productName": "Custom Vision", "meterName": "S0 Image Storage", "unitPrice": 0.4375, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt 4o 1120 Outp Data Zone Tokens", "unitPrice": 0.01375, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
+{"productName": "Computer Vision", "meterName": "Vectorize Image Transactions", "unitPrice": 0.12, "unitOfMeasure": "1K"}
