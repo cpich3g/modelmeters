@@ -66,7 +66,7 @@
 		.info-content { display:flex; gap:24px; font-size:13px; }
 		.info-row { display:flex; align-items:center; gap:6px; }
 	.info-right { margin-left:auto; text-align:right; }
-		.discount-indicator { background:var(--accent); color:white; padding:8px 16px; text-align:center; font-weight:600; font-size:14px; border-bottom:1px solid var(--border); display:none; }
+		.discount-indicator { background:#7c3aed; color:white; padding:8px 16px; text-align:center; font-weight:600; font-size:14px; border-bottom:1px solid var(--border); display:none; }
 		.discount-indicator.active { display:block; }
 		/* Prevent mobile text inflation and allow wrapping on small screens */
 		html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
 							&nbsp; | &nbsp;
 							<a href="https://github.com/guygregory/modelmeters.com" target="_blank" rel="noopener noreferrer">GitHub</a>
 							&nbsp; | &nbsp;
-							<button id="btn-discount" style="all:unset;cursor:pointer;color:var(--text);text-decoration:underline;" title="Set pricing discount">Discount</button>
+							<button id="btn-discount" style="all:unset;cursor:pointer;color:blue;text-decoration:underline;" title="Set pricing discount">Discount</button>
 							&nbsp; | &nbsp;
 							<a href="https://github.com/guygregory/modelmeters.com?tab=readme-ov-file#disclaimer" target="_blank" rel="noopener noreferrer">Disclaimer</a>
 						</span>
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	<div class="menu" id="menu-discount" role="menu" aria-hidden="true">
 		<div class="row">
 			<div class="muted">Enter discount percentage (0-100)</div>
-			<input id="discount-value" type="number" min="0" max="100" step="0.01" placeholder="e.g., 10.5" aria-label="Discount percentage" />
+			<input id="discount-value" type="number" min="0" max="100" step="1" placeholder="e.g., 10" aria-label="Discount percentage" />
 			<div class="actions">
 				<button id="btn-reset-discount">Reset</button>
 				<button id="btn-set-discount">Set</button>
@@ -832,11 +832,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		function updateDiscountIndicator() {
 			if (state.discount > 0) {
-				discountIndicator.textContent = `🎉 ${state.discount}% discount applied to all prices`;
+				discountIndicator.innerHTML = `💲 ${state.discount}% discount applied to all prices - <a href="#" id="discount-reset-link">Reset</a>`;
 				discountIndicator.classList.add('active');
+				const resetLink = discountIndicator.querySelector('#discount-reset-link');
+				if (resetLink) {
+					resetLink.addEventListener('click', e => {
+						e.preventDefault();
+						resetDiscount();
+					});
+				}
 			} else {
 				discountIndicator.classList.remove('active');
+				discountIndicator.textContent = '';
 			}
+		}
+
+		function resetDiscount() {
+			state.discount = 0;
+			discountValue.value = '';
+			updateDiscountIndicator();
+			renderRows();
+			closeMenus();
+			showNotification('✅ Discount cleared', 'success');
 		}
 
 		document.getElementById('btn-discount').addEventListener('click', e => {
@@ -866,12 +883,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 
 		document.getElementById('btn-reset-discount').addEventListener('click', () => {
-			state.discount = 0;
-			discountValue.value = '';
-			updateDiscountIndicator();
-			renderRows(); // Re-render to remove discount
-			closeMenus();
-			showNotification('✅ Discount cleared', 'success');
+			resetDiscount();
 		});
 
 		// Allow Enter key to set discount
@@ -919,12 +931,39 @@ document.addEventListener('DOMContentLoaded', function() {
 			};
 		}
 		function positionMenu(anchor, menu) {
-			const rect = anchor.getBoundingClientRect(); const bodyRect = document.body.getBoundingClientRect();
-			const top = rect.bottom + window.scrollY + 6;
-			
-			// Left-align behavior for all menus (favorites menu now aligns like columns menu)
-			const left = Math.min(rect.left + window.scrollX, bodyRect.width - menu.offsetWidth - 12);
-			menu.style.top = top + 'px'; 
+			const anchorRect = anchor.getBoundingClientRect();
+			const container = document.querySelector('.table-wrap') || document.body;
+			const containerRect = container.getBoundingClientRect();
+			const scrollX = window.scrollX || window.pageXOffset;
+			const scrollY = window.scrollY || window.pageYOffset;
+			const top = anchorRect.bottom + scrollY + 6;
+
+			// Measure menu width even when hidden so clamping logic is accurate
+			let menuWidth = menu.offsetWidth;
+			if (!menuWidth) {
+				const prevVisibility = menu.style.visibility;
+				const prevDisplay = menu.style.display;
+				menu.style.visibility = 'hidden';
+				menu.style.display = 'block';
+				menuWidth = menu.offsetWidth;
+				menu.style.display = prevDisplay;
+				menu.style.visibility = prevVisibility;
+			}
+
+			const padding = 12;
+			const containerLeft = containerRect.left + scrollX;
+			const containerRight = containerRect.right + scrollX;
+			const proposedLeft = anchorRect.left + scrollX;
+			const maxLeft = containerRight - menuWidth - padding;
+			const minLeft = containerLeft + padding;
+			let left;
+			if (maxLeft < minLeft) {
+				left = containerLeft + padding;
+			} else {
+				left = Math.min(Math.max(proposedLeft, minLeft), maxLeft);
+			}
+
+			menu.style.top = top + 'px';
 			menu.style.left = left + 'px';
 			menu.style.right = 'auto';
 		}
