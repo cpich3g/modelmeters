@@ -43,6 +43,7 @@
 		.menu .row { display:grid; grid-template-columns:1fr; gap:8px; }
 		.menu .row-inline { display:flex; gap:8px; }
 		.menu .muted { color:var(--muted); font-size:12px; }
+		.discount-label { font-size:13px; color:var(--text); }
 		.menu .list { max-height:260px; overflow:auto; border:1px solid var(--border); border-radius:10px; }
 		.menu label { display:flex; gap:10px; align-items:center; padding:6px 10px; border-bottom:1px solid var(--border); font-size:12px; }
 		.menu label:last-child { border-bottom:0; }
@@ -67,6 +68,10 @@
 		.info-row { display:flex; align-items:center; gap:6px; }
 	.info-right { margin-left:auto; text-align:right; }
 		.discount-indicator { background:#7c3aed; color:white; padding:8px 16px; text-align:center; font-weight:600; font-size:14px; border-bottom:1px solid var(--border); display:none; }
+		.discount-indicator a { color:white; text-decoration:underline; }
+		#discount-value { width:25%; min-width:80px; text-align:right; }
+		.discount-input { display:flex; align-items:center; gap:6px; }
+		.discount-input .discount-unit { font-size:13px; color:var(--text); }
 		.discount-indicator.active { display:block; }
 		/* Prevent mobile text inflation and allow wrapping on small screens */
 		html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
@@ -206,8 +211,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	<!-- Discount menu -->
 	<div class="menu" id="menu-discount" role="menu" aria-hidden="true">
 		<div class="row">
-			<div class="muted">Enter discount percentage (0-100)</div>
-			<input id="discount-value" type="number" min="0" max="100" step="1" placeholder="e.g., 10" aria-label="Discount percentage" />
+			<div class="discount-label">Enter discount percentage (0-100)</div>
+			<div class="discount-input">
+				<input id="discount-value" type="number" min="0" max="100" step="1" placeholder="e.g., 15" aria-label="Discount percentage" />
+				<span class="discount-unit">%</span>
+			</div>
 			<div class="actions">
 				<button id="btn-reset-discount">Reset</button>
 				<button id="btn-set-discount">Set</button>
