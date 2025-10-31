@@ -66,6 +66,8 @@
 		.info-content { display:flex; gap:24px; font-size:13px; }
 		.info-row { display:flex; align-items:center; gap:6px; }
 	.info-right { margin-left:auto; text-align:right; }
+		.discount-indicator { background:var(--accent); color:white; padding:8px 16px; text-align:center; font-weight:600; font-size:14px; border-bottom:1px solid var(--border); display:none; }
+		.discount-indicator.active { display:block; }
 		/* Prevent mobile text inflation and allow wrapping on small screens */
 		html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 		@media (max-width: 768px) {
@@ -80,6 +82,7 @@
 <body>
 	<div class="container">
 		<div class="card" id="card">
+			<div class="discount-indicator" id="discount-indicator"></div>
 			<div class="card-hd">
 				<div class="title"><a href="/" id="home-link" style="all:unset;cursor:pointer;display:inline;">Model Meters - Azure AI Foundry</a> <span id="row-count" class="count-chip"></span></div>
 <script>
@@ -133,6 +136,8 @@ document.addEventListener('DOMContentLoaded', function() {
 							<a href="https://github.com/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a>
 							&nbsp; | &nbsp;
 							<a href="https://github.com/guygregory/modelmeters.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+							&nbsp; | &nbsp;
+							<button id="btn-discount" style="all:unset;cursor:pointer;color:var(--text);text-decoration:underline;" title="Set pricing discount">Discount</button>
 							&nbsp; | &nbsp;
 							<a href="https://github.com/guygregory/modelmeters.com?tab=readme-ov-file#disclaimer" target="_blank" rel="noopener noreferrer">Disclaimer</a>
 						</span>
@@ -195,6 +200,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	<div class="menu" id="menu-shortcuts" role="menu" aria-hidden="true">
 		<div class="row">
 			<div id="shortcuts-list" role="group" aria-label="Shortcuts"></div>
+		</div>
+	</div>
+
+	<!-- Discount menu -->
+	<div class="menu" id="menu-discount" role="menu" aria-hidden="true">
+		<div class="row">
+			<div class="muted">Enter discount percentage (0-100)</div>
+			<input id="discount-value" type="number" min="0" max="100" step="0.01" placeholder="e.g., 10.5" aria-label="Discount percentage" />
+			<div class="actions">
+				<button id="btn-reset-discount">Reset</button>
+				<button id="btn-set-discount">Set</button>
+			</div>
 		</div>
 	</div>
 
@@ -268,6 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			pageSize: 20,
 			filteredRows: [],
 			sort: { key: 'effectiveStartDate', dir: 'desc' }, // default sort newest first
+			discount: 0, // discount percentage (0-100)
 		};
 
 		// Elements
@@ -291,6 +309,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (n === null || n === undefined || n === '') return '';
 			if (typeof n === 'string') n = Number(n);
 			if (isNaN(n)) return '' + n;
+			// Apply discount if set
+			if (state.discount > 0) {
+				n = n * (1 - state.discount / 100);
+			}
 			return n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 6 });
 		}
 
@@ -655,6 +677,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				url.searchParams.set('hide', hiddenColumns.join(','));
 			}
 			
+			// Encode discount: discount=[percentage]
+			if (state.discount > 0) {
+				url.searchParams.set('discount', state.discount.toString());
+			}
+			
 			// Copy to clipboard and show feedback
 			const shareableURL = url.toString();
 			copyToClipboard(shareableURL);
@@ -798,6 +825,60 @@ document.addEventListener('DOMContentLoaded', function() {
 			openMenu(menuShortcuts);
 		});
 
+		// Discount menu functionality
+		const menuDiscount = document.getElementById('menu-discount');
+		const discountValue = document.getElementById('discount-value');
+		const discountIndicator = document.getElementById('discount-indicator');
+
+		function updateDiscountIndicator() {
+			if (state.discount > 0) {
+				discountIndicator.textContent = `🎉 ${state.discount}% discount applied to all prices`;
+				discountIndicator.classList.add('active');
+			} else {
+				discountIndicator.classList.remove('active');
+			}
+		}
+
+		document.getElementById('btn-discount').addEventListener('click', e => {
+			// Toggle: close if already open; otherwise build and open
+			if (menuDiscount.classList.contains('open')) { closeMenus(); return; }
+			closeMenus(); // ensure other menus close first
+			discountValue.value = state.discount > 0 ? state.discount : '';
+			positionMenu(e.currentTarget, menuDiscount);
+			openMenu(menuDiscount);
+			setTimeout(() => discountValue.focus(), 0);
+		});
+
+		document.getElementById('btn-set-discount').addEventListener('click', () => {
+			const val = parseFloat(discountValue.value);
+			if (isNaN(val) || val < 0 || val > 100) {
+				showNotification('❌ Please enter a valid discount between 0 and 100', 'error');
+				return;
+			}
+			state.discount = val;
+			if (val === 0) {
+				state.discount = 0; // Reset if 0%
+			}
+			updateDiscountIndicator();
+			renderRows(); // Re-render to apply discount
+			closeMenus();
+			showNotification(`✅ Discount ${val > 0 ? 'set to ' + val + '%' : 'cleared'}`, 'success');
+		});
+
+		document.getElementById('btn-reset-discount').addEventListener('click', () => {
+			state.discount = 0;
+			discountValue.value = '';
+			updateDiscountIndicator();
+			renderRows(); // Re-render to remove discount
+			closeMenus();
+			showNotification('✅ Discount cleared', 'success');
+		});
+
+		// Allow Enter key to set discount
+		discountValue.addEventListener('keydown', e => {
+			if (e.key === 'Enter') document.getElementById('btn-set-discount').click();
+		});
+
 		// Load metadata and update info display
 		async function loadMetadata() {
 			try {
@@ -923,6 +1004,15 @@ document.addEventListener('DOMContentLoaded', function() {
 					}
 				}
 			}
+			
+			// Parse discount: discount=[percentage]
+			const discountParam = urlParams.get('discount');
+			if (discountParam) {
+				const discount = parseFloat(discountParam);
+				if (!isNaN(discount) && discount >= 0 && discount <= 100) {
+					state.discount = discount;
+				}
+			}
 		}
 
 		// Data loading from NDJSON (prices.ndjson)
@@ -967,6 +1057,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				computeFiltered(); // includes applySort
 				renderHeader();
 				renderRows();
+				updateDiscountIndicator(); // Show discount indicator if discount was loaded from URL
 				paginationEl.style.display = 'flex';
 			} catch (err) {
 				tbody.innerHTML = `<tr><td class="empty">Error loading NDJSON: ${err.message}</td></tr>`;
