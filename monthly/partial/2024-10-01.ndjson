@@ -95,5 +95,4 @@
 {"productName": "Speech", "meterName": "Free Speech Translation", "unitPrice": 0.0, "unitOfMeasure": "1 Hour"}
 {"productName": "Speech", "meterName": "Commitment Tier Neural Text to Speech Azure 80M Unit", "unitPrice": 960.0, "unitOfMeasure": "1/Month"}
 {"productName": "Speech", "meterName": "S1 Custom Speech To Text", "unitPrice": 1.2, "unitOfMeasure": "1 Hour"}
-{"productName": "Speech", "meterName": "Voice Conversion - Standard Speech", "unitPrice": 0.36, "unitOfMeasure": "1 Minute"}
 {"productName": "Speech", "meterName": "Commitment Tier Neural Text to Speech Azure 400M Neural Text To Speech CT Overage Characters", "unitPrice": 9.75, "unitOfMeasure": "1M"}

@@ -6,7 +6,6 @@
 {"productName": "Azure OpenAI", "meterName": "gpt-35-turbo16K-FT-Inp-glbl Tokens", "unitPrice": 0.0005, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4-turbo128K Outp-glbl Tokens", "unitPrice": 0.03, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4-turbo128K Inp-glbl Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Conversion - Standard Speech", "unitPrice": 0.36, "unitOfMeasure": "1 Minute"}
 {"productName": "Azure OpenAI", "meterName": "babbage-002-FT-Trng-regnl tkn Tokens", "unitPrice": 0.0004, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "gpt-4-32K-Output-regional Tokens", "unitPrice": 0.12, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI", "meterName": "Assistants-File Search-glbl GB", "unitPrice": 0.1, "unitOfMeasure": "1/Day"}

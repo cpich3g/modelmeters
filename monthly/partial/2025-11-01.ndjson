@@ -1,24 +1,23 @@
-{"productName": "Speech", "meterName": "Voice Live BYO Custom Speech Audio Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live BYO Custom Speech Audio Input Tokens", "unitPrice": 0.036, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Custom Speech Audio Output Tokens", "unitPrice": 0.05, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Input Tokens", "unitPrice": 0.04, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live BYO Standard Speech Audio Input Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
+{"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 3M Unit", "unitPrice": 39600.0, "unitOfMeasure": "1/Year"}
+{"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 10M Unit", "unitPrice": 84000.0, "unitOfMeasure": "1/Year"}
 {"productName": "Speech", "meterName": "Voice Live BYO Standard Speech Audio Input Tokens", "unitPrice": 0.0125, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Cache Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Conversion - Standard Speech", "unitPrice": 0.1, "unitOfMeasure": "1 Minute"}
+{"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 10M Unit", "unitPrice": 67200.0, "unitOfMeasure": "1/Year"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Output Tokens", "unitPrice": 0.088, "unitOfMeasure": "1K"}
+{"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 3M Unit", "unitPrice": 31680.0, "unitOfMeasure": "1/Year"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Input Tokens", "unitPrice": 0.015, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live BYO Standard Speech Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live BYO Standard Speech Audio Output Tokens", "unitPrice": 0.03, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Input Tokens", "unitPrice": 0.039, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Output Tokens", "unitPrice": 0.038, "unitOfMeasure": "1K"}
-{"productName": "Speech", "meterName": "Voice Live BYO Custom Speech Audio Output Tokens", "unitPrice": 0.01, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live BYO Custom Speech Audio Output Tokens", "unitPrice": 0.047, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
-{"productName": "Foundry Model Tools", "meterName": "Model Routers DZ 1M Tokens", "unitPrice": 0.01, "unitOfMeasure": "1M"}
 {"productName": "Foundry Model Tools", "meterName": "Model Routers DZ 1M Tokens", "unitPrice": 0.154, "unitOfMeasure": "1M"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Custom Speech Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
