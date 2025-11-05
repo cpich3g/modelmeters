@@ -4,6 +4,11 @@
 
 <img width="1280" height="640" alt="socialpreview" src="https://github.com/user-attachments/assets/3cb11499-770f-4e87-818a-af22979e5595" />
 
+## Cloud Champion overview session and slides (Microsoft Partners)
+
+<img width="1280" height="720" alt="How I built Model Meters in a weekend - Cloud Champion 6th November 2025" src="https://github.com/user-attachments/assets/4e9bf528-f9b3-47f5-b4a0-ada2404166ab" />
+
+To watch the November 2025 Cloud Champion session associated with this tool, please browse to the recording [here](https://www.cloudchampion.co/c/using-azure-ai-foundry-and-github-services-to-build-modelmeters-com).
 
 ## Solution Overview
 
