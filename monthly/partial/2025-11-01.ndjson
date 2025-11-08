@@ -1,26 +1,79 @@
 {"productName": "Speech", "meterName": "Voice Live BYO Custom Speech Audio Input Tokens", "unitPrice": 0.036, "unitOfMeasure": "1K"}
+{"productName": "Llama models", "meterName": "Llama3.3-Out-FT Tokens", "unitPrice": 0.00071, "unitOfMeasure": "1K"}
+{"productName": "Qwen models", "meterName": "Qwen3 32B FT Deployment Hosting Unit", "unitPrice": 0.3, "unitOfMeasure": "1/Hour"}
+{"productName": "Grok model family", "meterName": "Grok4 Fast Inp DZone Tokens", "unitPrice": 0.00022, "unitOfMeasure": "1K"}
+{"productName": "Llama models", "meterName": "3.3 70b FT Deployment Hosting Unit", "unitPrice": 0.3, "unitOfMeasure": "1/Hour"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 mn cd pp inp glb Tokens", "unitPrice": 0.000175, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 pp cd inp glb Tokens", "unitPrice": 0.000875, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 mn pp out glb Tokens", "unitPrice": 0.0028, "unitOfMeasure": "1K"}
+{"productName": "Llama models", "meterName": "Llama3.3 70b-IN-FT Tokens", "unitPrice": 0.00071, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok-4 Outp DZone Tokens", "unitPrice": 0.0165, "unitOfMeasure": "1K"}
+{"productName": "Mistral Models", "meterName": "Ministral 3B Model In-FT Tokens", "unitPrice": 5e-05, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Custom Speech Audio Output Tokens", "unitPrice": 0.05, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 prty inp glbl Tokens", "unitPrice": 0.0035, "unitOfMeasure": "1K"}
+{"productName": "Mistral Models", "meterName": "Ministral 3B Model Out-FT Tokens", "unitPrice": 0.00015, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok-4 Inp glbl Tokens", "unitPrice": 0.003, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Input Tokens", "unitPrice": 0.04, "unitOfMeasure": "1K"}
 {"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 3M Unit", "unitPrice": 39600.0, "unitOfMeasure": "1/Year"}
+{"productName": "Qwen models", "meterName": "Qwen3 32B-Out-FT Tokens", "unitPrice": 0.0012, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI OSS models", "meterName": "GPT-OSS-20b-IN-FT Tokens", "unitPrice": 7e-05, "unitOfMeasure": "1K"}
+{"productName": "Mistral Models", "meterName": "Mnstrl 3B FT Deployment Hosting Unit", "unitPrice": 0.65, "unitOfMeasure": "1/Hour"}
+{"productName": "Grok model family", "meterName": "Grok4 Fast Inp glbl Tokens", "unitPrice": 0.0002, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Code Fast 1 Outp glbl Tokens", "unitPrice": 0.0015, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 mn pp out dz Tokens", "unitPrice": 0.00308, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI OSS models", "meterName": "OSS-20b FT Tokens", "unitPrice": 0.0036, "unitOfMeasure": "1K"}
 {"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 10M Unit", "unitPrice": 84000.0, "unitOfMeasure": "1/Year"}
+{"productName": "Mistral Models", "meterName": "Mnstrl 3B FT Tokens", "unitPrice": 0.001, "unitOfMeasure": "1K"}
+{"productName": "Qwen models", "meterName": "Qwen3 32B FT Tokens", "unitPrice": 0.0032, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live BYO Standard Speech Audio Input Tokens", "unitPrice": 0.0125, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Code Fast 1 Outp DZone Tokens", "unitPrice": 0.00165, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI OSS models", "meterName": "GPT-OSS-20b-Out-FT Tokens", "unitPrice": 0.0003, "unitOfMeasure": "1K"}
+{"productName": "Llama models", "meterName": "Llama3.3 70b-IN-FT Tokens", "unitPrice": 0.00089, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok4 Fast Outp glbl Tokens", "unitPrice": 0.0005, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 pp cd inp dz Tokens", "unitPrice": 0.000963, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok-4 Inp DZone Tokens", "unitPrice": 0.0033, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Code Fast 1 Inp glbl Tokens", "unitPrice": 0.0002, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 prty inp dzone Tokens", "unitPrice": 0.00385, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Cache Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
+{"productName": "Llama models", "meterName": "Llama3.3-Out-FT Tokens", "unitPrice": 0.00089, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Conversion - Standard Speech", "unitPrice": 0.1, "unitOfMeasure": "1 Minute"}
 {"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 10M Unit", "unitPrice": 67200.0, "unitOfMeasure": "1/Year"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 mn pp cd inp dz Tokens", "unitPrice": 0.000193, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Output Tokens", "unitPrice": 0.088, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 mn pp inp glb Tokens", "unitPrice": 0.0007, "unitOfMeasure": "1K"}
 {"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 3M Unit", "unitPrice": 31680.0, "unitOfMeasure": "1/Year"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 prty out dzone Tokens", "unitPrice": 0.0154, "unitOfMeasure": "1K"}
+{"productName": "Qwen models", "meterName": "Qwen3 32B-IN-FT Tokens", "unitPrice": 0.0003, "unitOfMeasure": "1K"}
+{"productName": "Qwen models", "meterName": "Qwen3 32B FT Tokens", "unitPrice": 0.004, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Input Tokens", "unitPrice": 0.015, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI OSS models", "meterName": "OSS-20b FT Deployment Hosting Unit", "unitPrice": 0.3, "unitOfMeasure": "1/Hour"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 mn pp inp dz Tokens", "unitPrice": 0.00077, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Code Fast 1 Inp DZone Tokens", "unitPrice": 0.00022, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI OSS models", "meterName": "OSS-20b FT Tokens", "unitPrice": 0.0045, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Audio Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live BYO Standard Speech Audio Output Tokens", "unitPrice": 0.03, "unitOfMeasure": "1K"}
+{"productName": "Mistral Models", "meterName": "Ministral 3B Model In-FT Tokens", "unitPrice": 6e-05, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok-4 Outp glbl Tokens", "unitPrice": 0.015, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Input Tokens", "unitPrice": 0.039, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 prty out glbl Tokens", "unitPrice": 0.014, "unitOfMeasure": "1K"}
+{"productName": "Agent Factory Pre-Purchase Plan", "meterName": "500,000 ACUs Agent Commit Unit", "unitPrice": 450000.0, "unitOfMeasure": "1"}
+{"productName": "Agent Factory Pre-Purchase Plan", "meterName": "100,000 ACUs Agent Commit Unit", "unitPrice": 95000.0, "unitOfMeasure": "1"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Output Tokens", "unitPrice": 0.038, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live BYO Custom Speech Audio Output Tokens", "unitPrice": 0.047, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI OSS models", "meterName": "GPT-OSS-20b-IN-FT Tokens", "unitPrice": 8.8e-05, "unitOfMeasure": "1K"}
+{"productName": "Qwen models", "meterName": "Qwen3 32B-IN-FT Tokens", "unitPrice": 0.000375, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok-4 Outp glbl Tokens", "unitPrice": 0.01875, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Text Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok4 Fast Outp DZone Tokens", "unitPrice": 0.00055, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
 {"productName": "Foundry Model Tools", "meterName": "Model Routers DZ 1M Tokens", "unitPrice": 0.154, "unitOfMeasure": "1M"}
+{"productName": "Mistral Models", "meterName": "Mnstrl 3B FT Tokens", "unitPrice": 0.00125, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Code Fast 1 Outp glbl Tokens", "unitPrice": 0.00188, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
+{"productName": "Qwen models", "meterName": "Qwen3 32B FT Deployment Hosting Unit", "unitPrice": 0.375, "unitOfMeasure": "1/Hour"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Custom Speech Audio Cached Tokens", "unitPrice": 4e-05, "unitOfMeasure": "1K"}
+{"productName": "Mistral Models", "meterName": "Mnstrl 3B FT Deployment Hosting Unit", "unitPrice": 0.81, "unitOfMeasure": "1/Hour"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Output Tokens", "unitPrice": 0.033, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Cached Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std- LLM Audio Cached Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
@@ -33,12 +86,21 @@
 {"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - LLM Audio Input Tokens", "unitPrice": 0.004, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Input Tokens", "unitPrice": 0.00066, "unitOfMeasure": "1K"}
+{"productName": "Llama models", "meterName": "3.3 70b FT Deployment Hosting Unit", "unitPrice": 0.36, "unitOfMeasure": "1/Hour"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Input Tokens", "unitPrice": 0.0055, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI OSS models", "meterName": "OSS-20b FT Deployment Hosting Unit", "unitPrice": 0.375, "unitOfMeasure": "1/Hour"}
+{"productName": "Grok model family", "meterName": "Grok-4 Inp glbl Tokens", "unitPrice": 0.00375, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok4 Fast Outp glbl Tokens", "unitPrice": 0.00063, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Input Tokens", "unitPrice": 0.017, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Custom Speech Audio Output Tokens", "unitPrice": 0.055, "unitOfMeasure": "1K"}
+{"productName": "Azure OpenAI OSS models", "meterName": "GPT-OSS-20b-Out-FT Tokens", "unitPrice": 0.00038, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Standard Speech Audio Outpt Tokens", "unitPrice": 0.033, "unitOfMeasure": "1K"}
+{"productName": "Qwen models", "meterName": "Qwen3 32B-Out-FT Tokens", "unitPrice": 0.0015, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Code Fast 1 Inp glbl Tokens", "unitPrice": 0.00025, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Output Tokens", "unitPrice": 0.00264, "unitOfMeasure": "1K"}
+{"productName": "Mistral Models", "meterName": "Ministral 3B Model Out-FT Tokens", "unitPrice": 0.00019, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Output Tokens", "unitPrice": 0.022, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - LLM Text Cached Tokens", "unitPrice": 0.00033, "unitOfMeasure": "1K"}
+{"productName": "Grok model family", "meterName": "Grok4 Fast Inp glbl Tokens", "unitPrice": 0.00025, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std- LLM Audio Output Tokens", "unitPrice": 0.022, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Lite - Standard Speech Audio Input Tokens", "unitPrice": 0.013, "unitOfMeasure": "1K"}
