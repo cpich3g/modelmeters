@@ -21,6 +21,7 @@
 {"productName": "Grok model family", "meterName": "Grok4 Fast Inp glbl Tokens", "unitPrice": 0.0002, "unitOfMeasure": "1K"}
 {"productName": "Grok model family", "meterName": "Code Fast 1 Outp glbl Tokens", "unitPrice": 0.0015, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 mn pp out dz Tokens", "unitPrice": 0.00308, "unitOfMeasure": "1K"}
+{"productName": "Microsoft Agent Pre-Purchase Plan", "meterName": "20,000 ACUs Agent Commit Unit", "unitPrice": 19000.0, "unitOfMeasure": "1"}
 {"productName": "Azure OpenAI OSS models", "meterName": "OSS-20b FT Tokens", "unitPrice": 0.0036, "unitOfMeasure": "1K"}
 {"productName": "Language - disconnected", "meterName": "Commitment Tier Summarization 10M Unit", "unitPrice": 84000.0, "unitOfMeasure": "1/Year"}
 {"productName": "Mistral Models", "meterName": "Mnstrl 3B FT Tokens", "unitPrice": 0.001, "unitOfMeasure": "1K"}
@@ -56,8 +57,8 @@
 {"productName": "Grok model family", "meterName": "Grok-4 Outp glbl Tokens", "unitPrice": 0.015, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Std - Custom Speech Audio Input Tokens", "unitPrice": 0.039, "unitOfMeasure": "1K"}
 {"productName": "Azure OpenAI PP GPT4s", "meterName": "gpt 41 prty out glbl Tokens", "unitPrice": 0.014, "unitOfMeasure": "1K"}
-{"productName": "Agent Factory Pre-Purchase Plan", "meterName": "500,000 ACUs Agent Commit Unit", "unitPrice": 450000.0, "unitOfMeasure": "1"}
-{"productName": "Agent Factory Pre-Purchase Plan", "meterName": "100,000 ACUs Agent Commit Unit", "unitPrice": 95000.0, "unitOfMeasure": "1"}
+{"productName": "Microsoft Agent Pre-Purchase Plan", "meterName": "500,000 ACUs Agent Commit Unit", "unitPrice": 425000.0, "unitOfMeasure": "1"}
+{"productName": "Microsoft Agent Pre-Purchase Plan", "meterName": "100,000 ACUs Agent Commit Unit", "unitPrice": 90000.0, "unitOfMeasure": "1"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - LLM Text Cached Tokens", "unitPrice": 0.00275, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live API Pro - Standard Speech Audio Output Tokens", "unitPrice": 0.038, "unitOfMeasure": "1K"}
 {"productName": "Speech", "meterName": "Voice Live BYO Custom Speech Audio Output Tokens", "unitPrice": 0.047, "unitOfMeasure": "1K"}
