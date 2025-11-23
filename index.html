@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Model Meters - Azure AI Foundry</title>
+	<title>Model Costs - Microsoft Foundry</title>
 	<link rel="icon" type="image/png" href="img/favicon.png">
 	<style>
 		/* Light theme (default) */
@@ -94,7 +94,7 @@
 		<div class="card" id="card">
 			<div class="discount-indicator" id="discount-indicator"></div>
 			<div class="card-hd">
-				<div class="title"><a href="/" id="home-link" style="all:unset;cursor:pointer;display:inline;">Model Meters - Azure AI Foundry</a> <span id="row-count" class="count-chip"></span></div>
+				<div class="title"><a href="/" id="home-link" style="all:unset;cursor:pointer;display:inline;">Model Costs - Microsoft Foundry</a> <span id="row-count" class="count-chip"></span></div>
 <script>
 // Make the home link work on any path or subdirectory, without hard-coding
 document.addEventListener('DOMContentLoaded', function() {
@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					</div>
 					<div id="loading" class="loading"><div class="spinner"></div><span>Loading data…</span></div>
 					<button id="btn-theme" title="Toggle light/dark mode">🌗 Theme</button>
+					<button id="btn-chat" title="Chat with Azure AI">💬 Chat</button>
 					<button id="btn-ai-summaries" title="View AI monthly summaries">✨AI Summaries</button>
 				</div>
 			</div>
@@ -141,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					<div class="info-row">
 						<strong>Last updated:</strong> <span id="last-updated">Never</span>
 					</div>
-					<div class="info-row info-right">
+					<!-- <div class="info-row info-right">
 						<span>
 							Created by <a href="https://github.com/cpich3g" target="_blank" rel="noopener noreferrer">Justin J</a> +
 							<a href="https://github.com/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a>
@@ -152,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
 							&nbsp; | &nbsp;
 							<a href="https://github.com/cpich3g/modelmeters?tab=readme-ov-file#disclaimer" target="_blank" rel="noopener noreferrer">Disclaimer</a>
 						</span>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="table-wrap">
@@ -260,6 +261,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			// Prefer relative path to work on file:// and http(s)://
 			const dest = 'agent/?theme=' + encodeURIComponent(theme);
 			window.location.href = dest;
+		});
+
+		// Navigate to chat page
+		document.getElementById('btn-chat').addEventListener('click', () => {
+			const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+			const theme = isDark ? 'dark' : 'light';
+			window.location.href = 'chat.html?theme=' + encodeURIComponent(theme);
 		});
 
 		// Data & columns
