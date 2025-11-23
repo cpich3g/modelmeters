@@ -51,7 +51,7 @@ jobs:
               gh issue create \
                 --title "Please review $filename" \
                 --body "$filename has been created in monthly/aisummary folder. Please review and amend if needed." \
-                --assignee guygregory \
+                --assignee cpich3g \
                 --label "help wanted"
               
               echo "Created issue for $filename"

@@ -82,7 +82,7 @@ def read_markdown_files(aisummary_dir: Path) -> list[tuple[str, str, str, dateti
     
     return result
 
-def generate_rss_feed(summaries: list[tuple[str, str, str, datetime]], base_url: str = "https://modelmeters.com") -> str:
+def generate_rss_feed(summaries: list[tuple[str, str, str, datetime]], base_url: str = "https://aoaimeters.com") -> str:
     """Generate RSS 2.0 XML feed."""
     
     # RSS header
@@ -96,8 +96,8 @@ def generate_rss_feed(summaries: list[tuple[str, str, str, datetime]], base_url:
 <lastBuildDate>{last_build_date}</lastBuildDate>
 <atom:link href="{base_url}/agent/rss.xml" rel="self" type="application/rss+xml"/>
 <generator>Model Meters RSS Generator</generator>
-<webMaster>guy.gregory@microsoft.com</webMaster>
-<managingEditor>guy.gregory@microsoft.com</managingEditor>
+<webMaster>justinjoy@microsoft.com</webMaster>
+<managingEditor>justinjoy@microsoft.com</managingEditor>
 <category>Technology</category>
 <category>Azure</category>
 <category>AI</category>

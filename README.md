@@ -1,6 +1,6 @@
 # Model Meters - Azure AI Foundry Pricing Explorer
 
-[modelmeters.com](https://modelmeters.com) provides a simple front-end to the [Azure Retail Prices API](https://docs.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices), automatically downloading and enriching Azure AI pricing data with AI-generated summaries and insights.
+[aoaimeters.com](https://aoaimeters.com) provides a simple front-end to the [Azure Retail Prices API](https://docs.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices), automatically downloading and enriching Azure AI pricing data with AI-generated summaries and insights.
 
 <img width="1280" height="640" alt="socialpreview" src="https://github.com/user-attachments/assets/3cb11499-770f-4e87-818a-af22979e5595" />
 
@@ -111,8 +111,8 @@ The minimal solution takes advantage of free tiers where available, and has been
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/guygregory/modelmeters.com.git
-   cd modelmeters.com
+   git clone https://github.com/cpich3g/modelmeters.git
+   cd modelmeters
    ```
 
 2. **Configure Azure OpenAI** (for AI summaries):

@@ -2,6 +2,9 @@ import os
 import sys
 from datetime import datetime
 from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import argparse
 endpoint = "https://models.github.ai/inference"

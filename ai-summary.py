@@ -6,6 +6,7 @@ from datetime import datetime
 from openai import OpenAI
 from dotenv import load_dotenv
 import time
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
 # --- Global environment initialization ---
 REQUIRED_ENV_VARS = [
@@ -140,10 +141,14 @@ def main():
         print("Error: Missing Azure OpenAI environment variables. Set AZURE_OPENAI_API_KEY, AZURE_OPENAI_V1_API_ENDPOINT, and AZURE_OPENAI_API_MODEL.")
         sys.exit(7)
 
+    token_provider = get_bearer_token_provider(
+        DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+    )
+
     client = OpenAI(
-        api_key=azure_key,
+        api_key=token_provider,
         base_url=azure_endpoint,
-        default_query={"api-version": "preview"},
+        # default_query={"api-version": "preview"},
     )
     filename = os.path.basename(input_path)
     print(f"Using {azure_model} with {reasoning_effort} reasoning effort on {filename}.")
@@ -152,7 +157,7 @@ def main():
     try:
         response = client.responses.create(
             model=azure_model,
-            **({"reasoning": {"effort": reasoning_effort}} if azure_model.lower() == "gpt-5" else {}),
+            **({"reasoning": {"effort": reasoning_effort}} if azure_model.lower().startswith("gpt-5") else {}),
             instructions=system_message,
             tools=[
             {
@@ -204,7 +209,7 @@ def main():
         print(f"Time taken: {int(round(api_call_seconds))}s")
 
     reasoning_effort_text = ""
-    if (azure_model).lower() == "gpt-5":
+    if azure_model.lower().startswith("gpt-5"):
         reasoning_effort_text = f" with {reasoning_effort} reasoning effort"
 
     disclaimer = (
