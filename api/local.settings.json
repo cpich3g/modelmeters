@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AZURE_OPENAI_API_KEY": "",
+    "AZURE_OPENAI_V1_API_ENDPOINT": "https://ai-justinjoy-4099.openai.azure.com/openai/v1/",
+    "AZURE_OPENAI_API_MODEL": "gpt-5.1"
+  },
+  "Host": {
+    "CORS": "*"
+  }
+}
