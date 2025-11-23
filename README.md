@@ -1,4 +1,4 @@
-# Model Meters - Azure AI Foundry Pricing Explorer
+# Model Meters - Microsoft Foundry Pricing Explorer
 
 [aoaimeters.com](https://aoaimeters.com) provides a simple front-end to the [Azure Retail Prices API](https://docs.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices), automatically downloading and enriching Azure AI pricing data with AI-generated summaries and insights.
 
@@ -13,7 +13,7 @@ Model Meters combines several Azure and GitHub services to create an automated p
 
 1. **Daily Data Collection**: GitHub Actions automatically downloads the latest Azure pricing data using the Azure Retail Prices API
 2. **Data Processing**: The raw pricing data is split into segments based on the pricing `startDate` value
-3. **AI Enhancement**: Azure OpenAI (via Azure AI Foundry) generates intelligent summaries of the latest pricing changes, using Model Context Protocol (MCP) to include Microsoft Learn documentation
+3. **AI Enhancement**: Azure OpenAI (via Microsoft Foundry) generates intelligent summaries of the latest pricing changes, using Model Context Protocol (MCP) to include Microsoft Learn documentation
 4. **Web Deployment**: The processed data and summaries are automatically deployed to Azure Static Web Apps using GitHub Actions
 5. **User Interface**: A responsive web interface allows users to explore pricing data and AI-generated insights
 
@@ -31,7 +31,7 @@ Model Meters combines several Azure and GitHub services to create an automated p
 This sample is designed to help Microsoft partners (and their customers) understand how they can:
 
 - **Use GitHub and GitHub Copilot** to rapidly build a simple AI agent for data processing
-- **Combine GitHub Actions with Azure AI Foundry** to automate repeatable tasks at scale
+- **Combine GitHub Actions with Microsoft Foundry** to automate repeatable tasks at scale
 - **Use LLMs to enrich frequently updated structured data**, such as price lists, inventory, or sales data
 - **Incorporate the use of Model Context Protocol (MCP)** within their solutions for enhanced AI capabilities
 - **Build cost-effective monitoring solutions** for tracking Azure service pricing changes
@@ -167,9 +167,16 @@ The minimal solution takes advantage of free tiers where available, and has been
    python create-ai-summaries.py
    ```
 
-4. **Serve locally**:
+4. **Run the backend API (Optional - for Chat features)**:
    ```bash
-   python -m http.server 8000
+   cd api
+   func start
+   ```
+
+5. **Serve the frontend**:
+   ```bash
+   # In a new terminal, from the root directory
+   npx http-server -p 8000 --proxy http://localhost:7071
    # Visit http://localhost:8000
    ```
 
@@ -201,8 +208,10 @@ The project automatically deploys to Azure Static Web Apps via GitHub Actions wh
 - Sortable columns with customizable views
 - Export functionality for data analysis
 - Responsive design for mobile and desktop
+- **Discount Calculator**: Apply percentage discounts to visualize custom pricing
 
 ### 🤖 **AI-Powered Insights**
+- **Interactive Chat Assistant**: Ask questions about pricing and get AI-driven answers
 - Daily automated summaries of pricing changes
 - Model provider groupings and comparisons  
 - Integration with Microsoft Learn documentation
@@ -235,12 +244,11 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="your-api-key",
-    base_url="https://your-resource.openai.azure.com/openai/v1/",
-    default_query={"api-version": "preview"}
+    base_url="https://your-resource.openai.azure.com/openai/v1/"
 )
 
 response = client.responses.create(
-    model="gpt-4",
+    model="gpt-5.1",
     instructions="Summarize Azure pricing changes...",
     tools=[{
         "type": "mcp",
