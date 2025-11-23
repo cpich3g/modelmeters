@@ -659,14 +659,23 @@ document.addEventListener('DOMContentLoaded', function() {
 						continue;
 					}
 					if (line.startsWith('- ')) {
-						let url = line.slice(2).trim();
+						let raw = line.slice(2).trim();
 						if (
-							(url.startsWith('"') && url.endsWith('"')) ||
-							(url.startsWith("'") && url.endsWith("'"))
+							(raw.startsWith('"') && raw.endsWith('"')) ||
+							(raw.startsWith("'") && raw.endsWith("'"))
 						) {
-							url = url.slice(1, -1);
+							raw = raw.slice(1, -1);
 						}
-						if (url) shortcuts.push(url);
+						
+						let label = raw;
+						let url = raw;
+						if (raw.includes('|')) {
+							const parts = raw.split('|');
+							label = parts[0].trim();
+							url = parts.slice(1).join('|').trim();
+						}
+
+						if (url) shortcuts.push({ name: label, url: url });
 					} else {
 						// Reached a new key or end of list
 						break;
@@ -680,11 +689,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		function buildShortcutsList() {
 			shortcutsList.innerHTML = '';
-			for (const url of shortcuts) {
+			for (const item of shortcuts) {
 				const link = document.createElement('a');
-				link.href = url;
+				link.href = item.url;
 				link.className = 'shortcuts-link';
-				link.textContent = url;
+				link.textContent = item.name;
 				shortcutsList.appendChild(link);
 			}
 		}

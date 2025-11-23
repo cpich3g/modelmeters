@@ -1,19 +1,8 @@
 shortcuts:
-  - https://gpt-5.aoaimeters.com
-  - https://gpt-4o.aoaimeters.com
-  - https://gpt-oss.aoaimeters.com
-  - https://gpt-oss-120b.aoaimeters.com
-  - https://gpt-realtime.aoaimeters.com
-  - https://gpt-audio.aoaimeters.com
-  - https://gpt-image-1.aoaimeters.com
-  - https://sora.aoaimeters.com
-  - https://mistral.aoaimeters.com
-  - https://meta.aoaimeters.com
-  - https://llama.aoaimeters.com
-  - https://phi-4.aoaimeters.com
-  - https://phi.aoaimeters.com
-  - https://grok.aoaimeters.com
-  - https://xai.aoaimeters.com
-  - https://flux.aoaimeters.com
-  - https://bfl.aoaimeters.com
-  - https://deepseek.aoaimeters.com
+  - GPT-4 Models|?f_skuName=contains:gpt-4
+  - GPT-5 Models|?f_productName=contains:GPT5
+  - Azure OpenAI|?f_productName=contains:Azure OpenAI
+  - Speech Services|?f_productName=contains:Speech
+  - Language Services|?f_productName=contains:Language
+  - Computer Vision|?f_productName=contains:Computer Vision
+  - All Services|?
