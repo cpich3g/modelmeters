@@ -2,13 +2,8 @@
 
 [aoaimeters.com](https://aoaimeters.com) provides a simple front-end to the [Azure Retail Prices API](https://docs.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices), automatically downloading and enriching Azure AI pricing data with AI-generated summaries and insights.
 
-<img width="1280" height="640" alt="socialpreview" src="https://github.com/user-attachments/assets/3cb11499-770f-4e87-818a-af22979e5595" />
+<img width="1280" height="640" alt="socialpreview" src="img/socialpreview.png" />
 
-## Cloud Champion overview session and slides (Microsoft Partners)
-
-<img width="1280" height="720" alt="How I built Model Meters in a weekend - Cloud Champion 6th November 2025" src="https://github.com/user-attachments/assets/4e9bf528-f9b3-47f5-b4a0-ada2404166ab" />
-
-To watch the November 2025 Cloud Champion session associated with this tool, please browse to the recording [here](https://www.cloudchampion.co/c/using-azure-ai-foundry-and-github-services-to-build-modelmeters-com).
 
 ## Solution Overview
 
@@ -29,7 +24,7 @@ Model Meters combines several Azure and GitHub services to create an automated p
 - **Documentation Integration**: Uses [Microsoft Learn MCP Server](https://github.com/microsoftdocs/mcp) to automatically include relevant documentation links
 - **Human-in-the-loop**: As AI summaries are stored in markdown format, this allows for quick and easy human review (and potentially AI agent review)
 
-<img width="1531" height="700" alt="image" src="https://github.com/user-attachments/assets/aabbf3c8-14cb-488a-a49c-cca6440bb33d" />
+<img width="1280" height="640" alt="image" src="img/aisummary.png" />
 
 ## Who Would Benefit From This?
 
@@ -48,7 +43,7 @@ This sample is designed to help Microsoft partners (and their customers) underst
 - **[GitHub Copilot](https://github.com/features/copilot)** - AI-powered code completion and development assistance
 - **[GitHub Actions](https://github.com/features/actions)** - CI/CD automation and workflow orchestration
 - **[Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/)** - Static site hosting with integrated CI/CD
-- **[Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry/)** - AI model deployment and management platform
+- **[Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry/)** - AI model deployment and management platform
 - **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/)** - Protocol for AI model context sharing
 
 ### Development Stack
@@ -72,6 +67,37 @@ This sample is designed to help Microsoft partners (and their customers) underst
 - **[GitHub Actions](https://docs.github.com/en/actions)** - Workflow automation and CI/CD
 - **[GitHub Models](https://github.com/marketplace/models)** - Alternative AI model access (fallback option, especially for simpler, smaller demos)
 
+## Project Structure
+
+The repository is organized as follows:
+
+### Core Application
+
+- **`index.html`**: The main single-page application (SPA) that renders the pricing explorer UI.
+- **`api/`**: Azure Functions backend for dynamic capabilities.
+- **`prices.ndjson`**: The primary data store containing Azure pricing data in NDJSON format.
+- **`favorites.yaml`**: Configuration file for the "Favorites" quick-access menu in the UI.
+
+### Data Processing Pipeline
+
+- **`meter-download.py`**: Script to download the latest pricing data from the Azure Retail Prices API.
+- **`split_into_monthly.py`**: Processes raw data into monthly segments for easier consumption.
+- **`create-ai-summaries.py`**: Orchestrates the AI summarization process using Azure OpenAI.
+- **`generate-rss.py`**: Generates an RSS feed (`agent/rss.xml`) of the latest pricing updates.
+
+### Automation
+
+- **`.github/workflows/`**: Contains GitHub Actions workflows:
+  - `daily-data-update.yml`: Runs daily to fetch new data, generate summaries, and commit changes.
+  - `deploy-function-app.yml`: Deploys the Azure Functions backend.
+  - `azure-static-web-apps-*.yml`: Deploys the frontend to Azure Static Web Apps.
+
+### Output & Assets
+
+- **`agent/`**: Stores generated AI summaries and the RSS feed.
+- **`monthly/`**: Archives of monthly pricing data and summaries.
+- **`img/`**: Static assets and images.
+
 ## Cost Breakdown
 
 The minimal solution takes advantage of free tiers where available, and has been designed to be deployed on a Visual Studio Subscription, or an Azure Free account. The Advanced demo could be deployed on Azure Bulk Credit, or on a commercial Azure subscription (CSP, PAYG, MCA-E, etc.).
@@ -79,7 +105,7 @@ The minimal solution takes advantage of free tiers where available, and has been
 | Component | Minimal demo | Advanced demo | Notes |
 |-----------|----------------------|------------------------|-------|
 | **Azure Static Web Apps** | $0/month | $9/month (Standard) | Free tier includes 100GB bandwidth, 0.5GB storage |
-| **Azure AI Foundry - OpenAI** | ~$5-20/month | ~$50-100/month | Price varies based on token usage |
+| **Microsoft Foundry - OpenAI** | ~$5-20/month | ~$50-100/month | Price varies based on token usage |
 | **Azure Retail Prices API** | $0/month | $0/month | Free public API with rate limits |
 | **GitHub Actions** | $0/month | $4/month (Team plan) | 2000 minutes/month free, then $0.008/minute |
 | **GitHub Repository** | $0/month | $4/month (Team plan) | Public and private repos free, additional features in Team plan |
@@ -120,13 +146,9 @@ The minimal solution takes advantage of free tiers where available, and has been
    # Set environment variables
    export AZURE_OPENAI_API_KEY="your-api-key"
    export AZURE_OPENAI_V1_API_ENDPOINT="https://your-resource.openai.azure.com/openai/v1/"
-   export AZURE_OPENAI_API_MODEL="gpt-4"
+   export AZURE_OPENAI_API_MODEL="gpt-5.1"
    ```
 
-3. **Configure GitHub Token** (for GitHub Models fallback):
-   ```bash
-   export GITHUB_TOKEN="your-github-token"
-   ```
 
 ### Local Development
 
@@ -251,7 +273,7 @@ response = client.responses.create(
 ## Support and Resources
 
 - **Azure Pricing Documentation**: https://docs.microsoft.com/azure/cost-management-billing/
-- **Azure AI Foundry**: https://docs.microsoft.com/azure/ai-foundry/
+- **Microsoft Foundry**: https://docs.microsoft.com/azure/ai-foundry/
 - **GitHub Actions**: https://docs.github.com/en/actions
 - **Azure Static Web Apps**: https://docs.microsoft.com/azure/static-web-apps/
 - **Microsoft Learn MCP Server**: [https://github.com/microsoftdocs/mcp](https://github.com/microsoftdocs/mcp)
