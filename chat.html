@@ -205,6 +205,54 @@
 
         sendBtn.addEventListener('click', sendMessage);
 
+        function extractWidgetData(text) {
+            // 1. Try existing regex with code blocks (most reliable)
+            const codeBlockRegex = /([\s\S]*?)```(?:json)?\s*({[\s\S]*?"type":\s*"(?:list-view|model-card)"[\s\S]*?})\s*```([\s\S]*)/;
+            const match = text.match(codeBlockRegex);
+            if (match) return { textBefore: match[1], jsonStr: match[2], textAfter: match[3] };
+            
+            // 2. Try to find raw JSON
+            const typeMatch = text.match(/"type":\s*"(list-view|model-card)"/);
+            if (!typeMatch) return null;
+            
+            let startIndex = text.indexOf('{');
+            while (startIndex !== -1) {
+                let count = 1;
+                let endIndex = -1;
+                let inString = false;
+                let escape = false;
+                
+                for (let i = startIndex + 1; i < text.length; i++) {
+                    const char = text[i];
+                    if (escape) { escape = false; continue; }
+                    if (char === '\\') { escape = true; continue; }
+                    if (char === '"') { inString = !inString; continue; }
+                    if (!inString) {
+                        if (char === '{') count++;
+                        else if (char === '}') count--;
+                        
+                        if (count === 0) {
+                            endIndex = i + 1;
+                            break;
+                        }
+                    }
+                }
+                
+                if (endIndex !== -1) {
+                    const candidateJson = text.substring(startIndex, endIndex);
+                    if (candidateJson.includes(typeMatch[0])) {
+                        return {
+                            textBefore: text.substring(0, startIndex),
+                            jsonStr: candidateJson,
+                            textAfter: text.substring(endIndex)
+                        };
+                    }
+                }
+                startIndex = text.indexOf('{', startIndex + 1);
+            }
+            return null;
+        }
+
         async function sendMessage() {
             const text = userInput.value.trim();
             if (!text) return;
@@ -255,16 +303,13 @@
                         displayedText += chunk;
 
                         // Render
-                        const widgetRegex = /([\s\S]*?)```json\s*({[\s\S]*?"type":\s*"(?:list-view|model-card)"[\s\S]*?})\s*```([\s\S]*)/;
-                        const widgetMatch = displayedText.match(widgetRegex);
+                        const widgetData = extractWidgetData(displayedText);
                         
-                        if (widgetMatch) {
+                        if (widgetData) {
                             try {
-                                const textBefore = widgetMatch[1];
-                                const jsonStr = widgetMatch[2];
-                                const textAfter = widgetMatch[3];
-                                const widgetData = JSON.parse(jsonStr);
-                                bubble.innerHTML = marked.parse(textBefore) + renderWidget(widgetData) + marked.parse(textAfter);
+                                const { textBefore, jsonStr, textAfter } = widgetData;
+                                const parsedWidget = JSON.parse(jsonStr);
+                                bubble.innerHTML = marked.parse(textBefore) + renderWidget(parsedWidget) + marked.parse(textAfter);
                             } catch (e) {
                                 bubble.innerHTML = marked.parse(displayedText);
                             }
