@@ -6,7 +6,13 @@ from datetime import datetime
 from openai import OpenAI
 from dotenv import load_dotenv
 import time
-from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+
+# Try to import Azure identity, but make it optional
+try:
+    from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+    AZURE_IDENTITY_AVAILABLE = True
+except ImportError:
+    AZURE_IDENTITY_AVAILABLE = False
 
 # --- Global environment initialization ---
 REQUIRED_ENV_VARS = [
@@ -141,15 +147,29 @@ def main():
         print("Error: Missing Azure OpenAI environment variables. Set AZURE_OPENAI_API_KEY, AZURE_OPENAI_V1_API_ENDPOINT, and AZURE_OPENAI_API_MODEL.")
         sys.exit(7)
 
-    token_provider = get_bearer_token_provider(
-        DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
-    )
-
-    client = OpenAI(
-        api_key=token_provider,
-        base_url=azure_endpoint,
-        # default_query={"api-version": "preview"},
-    )
+    # Use Azure identity if available, otherwise use API key directly
+    if AZURE_IDENTITY_AVAILABLE:
+        try:
+            token_provider = get_bearer_token_provider(
+                DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+            )
+            client = OpenAI(
+                api_key=token_provider,
+                base_url=azure_endpoint,
+                # default_query={"api-version": "preview"},
+            )
+        except Exception as e:
+            print(f"Warning: Azure credential authentication failed ({e}), falling back to API key authentication")
+            client = OpenAI(
+                api_key=azure_key,
+                base_url=azure_endpoint,
+            )
+    else:
+        # Azure identity not available, use API key directly
+        client = OpenAI(
+            api_key=azure_key,
+            base_url=azure_endpoint,
+        )
     filename = os.path.basename(input_path)
     print(f"Using {azure_model} with {reasoning_effort} reasoning effort on {filename}.")
     api_call_seconds = None
