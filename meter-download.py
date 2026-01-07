@@ -157,7 +157,7 @@ def main(argv: list[str]) -> int:
 
 	# Build combined filter expression if cognitive services convenience flag used
 	combined_filter: str | None = args.filter
-	if getattr(args, "cognitive_services_only", False):
+	if getattr(args, "foundry_models_only", False):
 		cs_filter = "serviceName eq 'Foundry Models'"
 		if combined_filter:
 			combined_filter = f"({cs_filter}) and ({combined_filter})"
