@@ -15,7 +15,7 @@ Usage examples:
   python meter-download.py --ndjson all-prices.ndjson
   python meter-download.py --output all.json --ndjson all.ndjson
   python meter-download.py --max-pages 3 --ndjson sample.ndjson  (quick test)
-  python meter-download.py --cognitive-services-only --ndjson cognitive.ndjson
+  python meter-download.py --cognitive-services-only --ndjson foundry.ndjson
 
 Notes:
 Full dataset is large (hundreds of thousands of items). Writing a JSON array file may
@@ -114,7 +114,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 	p.add_argument(
 		"--cognitive-services-only",
 		action="store_true",
-		help="Convenience flag: restrict to serviceName eq 'Cognitive Services'. Can be combined with --filter (AND).",
+		help="Convenience flag: restrict to serviceName eq 'Foundry Models'. Can be combined with --filter (AND).",
 	)
 	p.add_argument(
 		"--max-pages",
