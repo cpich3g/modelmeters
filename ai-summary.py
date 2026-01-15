@@ -15,7 +15,14 @@ except ImportError:
     AZURE_IDENTITY_AVAILABLE = False
 
 # --- Global environment initialization ---
-REQUIRED_ENV_VARS = [
+# APIM endpoints take priority, fallback to direct Azure OpenAI endpoints
+REQUIRED_ENV_VARS_APIM = [
+    "APIM_AOAI_KEY",
+    "APIM_AOAI_ENDPOINT",
+    "AZURE_OPENAI_API_MODEL",
+]
+
+REQUIRED_ENV_VARS_AZURE = [
     "AZURE_OPENAI_API_KEY",
     "AZURE_OPENAI_V1_API_ENDPOINT",
     "AZURE_OPENAI_API_MODEL",
@@ -29,7 +36,10 @@ reasoning_effort = "low"  # default; can be overridden per-model below (minimal 
 
 
 def _have_all_required_env_vars() -> bool:
-    return all(os.getenv(v) for v in REQUIRED_ENV_VARS)
+    """Check if we have either APIM or Azure OpenAI credentials."""
+    apim_vars = all(os.getenv(v) for v in REQUIRED_ENV_VARS_APIM)
+    azure_vars = all(os.getenv(v) for v in REQUIRED_ENV_VARS_AZURE)
+    return apim_vars or azure_vars
 
 
 def _initialize_env():
@@ -50,8 +60,9 @@ def _initialize_env():
         pass
 
     global azure_key, azure_endpoint, azure_model
-    azure_key = os.getenv("AZURE_OPENAI_API_KEY")
-    azure_endpoint = os.getenv("AZURE_OPENAI_V1_API_ENDPOINT")
+    # Try APIM endpoints first, fallback to direct Azure OpenAI
+    azure_key = os.getenv("APIM_AOAI_KEY") or os.getenv("AZURE_OPENAI_API_KEY")
+    azure_endpoint = os.getenv("APIM_AOAI_ENDPOINT") or os.getenv("AZURE_OPENAI_V1_API_ENDPOINT")
     azure_model = os.getenv("AZURE_OPENAI_API_MODEL")
 
 
@@ -144,7 +155,9 @@ def main():
 
     # Ensure required Azure environment variables are present (loaded globally at import time)
     if not azure_key or not azure_endpoint or not azure_model:
-        print("Error: Missing Azure OpenAI environment variables. Set AZURE_OPENAI_API_KEY, AZURE_OPENAI_V1_API_ENDPOINT, and AZURE_OPENAI_API_MODEL.")
+        print("Error: Missing Azure OpenAI environment variables. Set either:")
+        print("  - APIM_AOAI_KEY, APIM_AOAI_ENDPOINT, and AZURE_OPENAI_API_MODEL (APIM)")
+        print("  - AZURE_OPENAI_API_KEY, AZURE_OPENAI_V1_API_ENDPOINT, and AZURE_OPENAI_API_MODEL (Direct)")
         sys.exit(7)
 
     # Use Azure identity if available, otherwise use API key directly
