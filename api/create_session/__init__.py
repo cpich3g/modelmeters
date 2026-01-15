@@ -22,17 +22,21 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         # Try to get a token using Azure Identity first
+        # For OpenAI-compatible APIs, both tokens and API keys use Bearer authentication
         auth_token = None
+        use_azure_identity = False
         try:
             token_provider = get_bearer_token_provider(
                 DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
             )
             auth_token = token_provider()
+            use_azure_identity = True
             logging.info("Using Azure Identity for authentication")
         except Exception as e:
             logging.warning(f"Azure Identity failed: {e}, falling back to API key")
             if api_key:
                 auth_token = api_key
+                logging.info("Using API key for authentication")
             else:
                 return func.HttpResponse(
                     "Authentication failed: No Azure Identity and no API key available",
@@ -45,6 +49,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         base_url = endpoint.rstrip('/')
         session_url = f"{base_url}/chatkit/sessions"
         
+        # For OpenAI-compatible APIs (including APIM), both OAuth tokens and API keys
+        # use the same Bearer authentication scheme in the Authorization header
         headers = {
             "Authorization": f"Bearer {auth_token}",
             "Content-Type": "application/json"
