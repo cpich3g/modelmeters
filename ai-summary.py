@@ -171,14 +171,23 @@ def main():
                 base_url=azure_endpoint,
                 # default_query={"api-version": "preview"},
             )
+            print("Using Azure Identity for authentication")
         except Exception as e:
-            print(f"Warning: Azure credential authentication failed ({e}), falling back to API key authentication")
-            client = OpenAI(
-                api_key=azure_key,
-                base_url=azure_endpoint,
-            )
+            # If token auth fails and we have an API key, try that
+            if azure_key:
+                print(f"Warning: Azure credential authentication failed ({e}), falling back to API key authentication")
+                client = OpenAI(
+                    api_key=azure_key,
+                    base_url=azure_endpoint,
+                )
+            else:
+                # No fallback available, re-raise the exception
+                raise
     else:
         # Azure identity not available, use API key directly
+        if not azure_key:
+            print("Error: Azure Identity not available and no API key provided")
+            sys.exit(7)
         client = OpenAI(
             api_key=azure_key,
             base_url=azure_endpoint,

@@ -2,7 +2,8 @@ import logging
 import os
 import json
 import azure.functions as func
-from openai import AzureOpenAI
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+import requests
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Creating ChatKit session.')
@@ -13,16 +14,30 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     api_key = os.environ.get("APIM_AOAI_KEY") or os.environ.get("AZURE_OPENAI_API_KEY")
     endpoint = os.environ.get("APIM_AOAI_ENDPOINT") or os.environ.get("AZURE_OPENAI_V1_API_ENDPOINT")
     
-    if not api_key or not endpoint:
+    if not endpoint:
         return func.HttpResponse(
-            "Missing configuration: (APIM_AOAI_KEY or AZURE_OPENAI_API_KEY) and (APIM_AOAI_ENDPOINT or AZURE_OPENAI_V1_API_ENDPOINT)",
+            "Missing configuration: APIM_AOAI_ENDPOINT or AZURE_OPENAI_V1_API_ENDPOINT",
             status_code=500
         )
 
     try:
-        # Initialize the client pointing to the user's endpoint
-        # We mimic the behavior of the OpenAI client in ai-summary.py
-        import requests
+        # Try to get a token using Azure Identity first
+        auth_token = None
+        try:
+            token_provider = get_bearer_token_provider(
+                DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+            )
+            auth_token = token_provider()
+            logging.info("Using Azure Identity for authentication")
+        except Exception as e:
+            logging.warning(f"Azure Identity failed: {e}, falling back to API key")
+            if api_key:
+                auth_token = api_key
+            else:
+                return func.HttpResponse(
+                    "Authentication failed: No Azure Identity and no API key available",
+                    status_code=500
+                )
         
         # Construct the URL for session creation
         # We assume endpoint is the base URL (e.g. https://my-proxy.com/v1)
@@ -31,7 +46,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         session_url = f"{base_url}/chatkit/sessions"
         
         headers = {
-            "Authorization": f"Bearer {api_key}",
+            "Authorization": f"Bearer {auth_token}",
             "Content-Type": "application/json"
         }
         
@@ -40,7 +55,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             req_body = req.get_json()
         except ValueError:
             req_body = {}
-
 
         response = requests.post(session_url, headers=headers, json=req_body)
         

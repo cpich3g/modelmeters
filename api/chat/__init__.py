@@ -67,7 +67,7 @@ Ensure the JSON is valid and complete.
 
         client = OpenAI(
             base_url=endpoint,
-            api_key=token_provider()
+            api_key=token_provider
         )
 
         # Note: Azure Functions V1 (this model) does not support returning a generator (streaming) directly.
