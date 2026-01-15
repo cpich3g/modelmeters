@@ -142,8 +142,18 @@ The minimal solution takes advantage of free tiers where available, and has been
    ```
 
 2. **Configure Azure OpenAI** (for AI summaries):
+   
+   Option A - Using Azure APIM (API Management):
    ```bash
-   # Set environment variables
+   # Set environment variables for APIM
+   export APIM_AOAI_KEY="your-apim-api-key"
+   export APIM_AOAI_ENDPOINT="https://your-apim.azure-api.net/aoaif/openai"
+   export AZURE_OPENAI_API_MODEL="gpt-5.2"
+   ```
+   
+   Option B - Direct Azure OpenAI endpoint:
+   ```bash
+   # Set environment variables for direct Azure OpenAI
    export AZURE_OPENAI_API_KEY="your-api-key"
    export AZURE_OPENAI_V1_API_ENDPOINT="https://your-resource.openai.azure.com/openai/v1/"
    export AZURE_OPENAI_API_MODEL="gpt-5.1"

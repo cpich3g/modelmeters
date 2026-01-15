@@ -9,12 +9,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     # Get environment variables
     # We use the same variables as ai-summary.py to ensure consistency
-    api_key = os.environ.get("AZURE_OPENAI_API_KEY")
-    endpoint = os.environ.get("AZURE_OPENAI_V1_API_ENDPOINT")
+    # Try APIM endpoints first, fallback to direct Azure OpenAI
+    api_key = os.environ.get("APIM_AOAI_KEY") or os.environ.get("AZURE_OPENAI_API_KEY")
+    endpoint = os.environ.get("APIM_AOAI_ENDPOINT") or os.environ.get("AZURE_OPENAI_V1_API_ENDPOINT")
     
     if not api_key or not endpoint:
         return func.HttpResponse(
-            "Missing configuration: AZURE_OPENAI_API_KEY or AZURE_OPENAI_V1_API_ENDPOINT",
+            "Missing configuration: (APIM_AOAI_KEY or AZURE_OPENAI_API_KEY) and (APIM_AOAI_ENDPOINT or AZURE_OPENAI_V1_API_ENDPOINT)",
             status_code=500
         )
 
